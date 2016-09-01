@@ -24,11 +24,11 @@ public class SalarySlipServiceShould {
 
   @Test public void
   display_a_simple_salary_slip_for_an_employee_receiving_just_basic_salary() {
-    salarySlipService.addBaseSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
+    salarySlipService.addBasicSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
 
     salarySlipService.printSalaryFor(EMPLOYEE_ID_12345);
 
-    verify(console).print("Date: 01 September 2016   Salary for period: Sept. 2016\n");
+    verify(console).print("Date: 01 Sep 2016            Salary for period: Sep 2016\n");
     verify(console).print("         \n");
     verify(console).print("         Employee ID: 12345\n");
     verify(console).print("         \n");
