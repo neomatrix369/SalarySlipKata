@@ -1,5 +1,9 @@
 package SalarySlipKata.domain;
 
 public class GBP {
-  public GBP(double value) {}
+  private double value;
+
+  public GBP(double value) {
+    this.value = value;
+  }
 }
