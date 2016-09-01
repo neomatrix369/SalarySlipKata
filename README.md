@@ -42,8 +42,10 @@ Salary slip kata
      
          Grand total        = Basic + sum of all Allowances - sum of all Deductions
          National Insurance = Grand Total - applicable NI percentage
+         (see below for NI deduction table)
          Taxable Income     = Grand Total - Personal Allowance 
          Tax                = Taxable Income - applicable tax percentage
+         (see below for Tax deduction table)
          Total deductables  = National Insurance + Tax
          Net payable        = Grand Total - Total Deductables
          
