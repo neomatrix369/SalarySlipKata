@@ -29,14 +29,14 @@ public class SalarySlipServiceShould {
     salarySlipService.printSalaryFor(EMPLOYEE_ID_12345);
 
     verify(console).print("Date: 01 Sep 2016            Salary for period: Sep 2016\n");
-    verify(console).print("         \n");
-    verify(console).print("         Employee ID: 12345\n");
-    verify(console).print("         \n");
-    verify(console).print("         SALARY                    DEDUCTION\n");
-    verify(console).print("         Basic           £2000.00  National Insurance     £159.40\n");
-    verify(console).print("                                   Tax                    £216.67\n");
     verify(console).print("\n");
-    verify(console).print("         \n");
-    verify(console).print("         Grand total     £2000.00  Net payable           £1623.93");
+    verify(console).print("Employee ID: 12345\n");
+    verify(console).print("\n");
+    verify(console).print("SALARY                    DEDUCTION\n");
+    verify(console).print("Basic           £2000.00  National Insurance     £159.40\n");
+    verify(console).print("                          Tax                    £216.67\n");
+    verify(console).print("\n");
+    verify(console).print("\n");
+    verify(console).print("Grand total     £2000.00  Net payable           £1623.93");
   } 
 }
