@@ -4,6 +4,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static java.time.LocalDate.parse;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import SalarySlipKata.domain.GBP;
@@ -12,10 +13,17 @@ import SalarySlipKata.infrastructure.Console;
 public class SalarySlipServiceShould {
   private static final EmployeeId EMPLOYEE_ID_12345 = new EmployeeId(12345);
 
+  private Console console;
+  private SalarySlipService salarySlipService;
+
+  @Before
+  public void initialise() {
+    console = mock(Console.class);
+    salarySlipService = new SalarySlipService(console);
+  }
+
   @Test public void
-  display_a_simple_salary_slip_for_an_employee_receiving_just_base_salary() {
-    Console console = mock(Console.class);
-    SalarySlipService salarySlipService = new SalarySlipService(console);
+  display_a_simple_salary_slip_for_an_employee_receiving_just_basic_salary() {
     salarySlipService.addBaseSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
 
     salarySlipService.printSalaryFor(EMPLOYEE_ID_12345);
