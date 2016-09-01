@@ -17,11 +17,15 @@ public class GBP {
     return new GBP(this.value * value);
   }
 
-  public boolean isGreaterThan(double value) {
-    return this.value > value;
+  public GBP dividedBy(int value) {
+    return new GBP(this.value / 12);
   }
 
   public GBP differenceFrom(double value) {
+    return new GBP(this.value - value);
+  }
+
+  public GBP minus(double value) {
     return new GBP(this.value - value);
   }
 
@@ -29,6 +33,17 @@ public class GBP {
     return isGreaterThan(0.00);
   }
 
+  public boolean isGreaterThan(double value) {
+    return this.value > value;
+  }
+
+  public boolean isGreaterThanOrEqualTo(double value) {
+    return this.value >= value;
+  }
+
+  public boolean isLessThanOrEqualTo(double value)  {
+    return this.value <= value;
+  }
 
   @Override
   public String toString() {

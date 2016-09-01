@@ -4,7 +4,6 @@ import static java.lang.String.format;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.infrastructure.Console;
@@ -13,14 +12,14 @@ import SalarySlipKata.infrastructure.SalaryService;
 public class SalarySlipService {
 
   private Console console;
-  private SalaryService salaryRepository = new SalaryService();
+  private SalaryService salaryService = new SalaryService();
 
   public SalarySlipService(Console console) {
     this.console = console;
   }
 
   public void addBasicSalaryFor(EmployeeId employeeId, GBP amount, LocalDate date) {
-    salaryRepository.addBasicSalaryFor(employeeId, amount, date);
+    salaryService.addBasicSalaryFor(employeeId, amount, date);
   }
 
   public void printSalaryFor(EmployeeId employeeId) {
@@ -32,12 +31,14 @@ public class SalarySlipService {
     console.print(format("Employee ID: %s%n", employeeId));
     console.print(format("SALARY                    DEDUCTION%n"));
     console.print(format("Basic           %s  National Insurance     %s%n",
-        salaryRepository.getBasicSalaryFor(employeeId),
-        salaryRepository.getNationalInsuranceFor(employeeId)));
+        salaryService.getBasicSalaryFor(employeeId),
+        salaryService.getNationalInsuranceFor(employeeId))
+    );
+    console.print(format("                          Tax                    %s%n",
+        salaryService.getTax(employeeId)));
   }
 
   private String getFormattedDate(String pattern, LocalDate date) {
-    DateTimeFormatter salaryPeriodFormatter = ofPattern(pattern);
-    return date.format(salaryPeriodFormatter);
+    return date.format(ofPattern(pattern));
   }
 }
