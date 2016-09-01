@@ -1,7 +1,7 @@
 package SalarySlipKata;
 
 import static java.lang.String.format;
-import static java.time.LocalDate.now;
+import static java.time.format.DateTimeFormatter.ofPattern;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -24,17 +24,20 @@ public class SalarySlipService {
   }
 
   public void printSalaryFor(EmployeeId employeeId) {
-    DateTimeFormatter salaryPeriodFormatter = DateTimeFormatter.ofPattern("MMM yyyy");
-    String salaryPeriod = now().format(salaryPeriodFormatter);
+    String currentDate = getFormattedDate("dd MMM yyyy", LocalDate.now());
+    String salaryPeriod = getFormattedDate("MMM yyyy", LocalDate.now());
 
-    DateTimeFormatter currentDateFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
-    String currentDate = now().format(currentDateFormatter);
     console.print(format("Date: %s            Salary for period: %s%n", currentDate, salaryPeriod));
     console.print(format("%n"));
     console.print(format("Employee ID: %s%n", employeeId));
     console.print(format("SALARY                    DEDUCTION%n"));
-    console.print(format("Basic           %s  National Insurance     %s",
+    console.print(format("Basic           %s  National Insurance     %s%n",
         salaryRepository.getBasicSalaryFor(employeeId),
         salaryRepository.getNationalInsuranceFor(employeeId)));
+  }
+
+  private String getFormattedDate(String pattern, LocalDate date) {
+    DateTimeFormatter salaryPeriodFormatter = ofPattern(pattern);
+    return date.format(salaryPeriodFormatter);
   }
 }
