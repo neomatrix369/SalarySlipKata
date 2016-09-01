@@ -51,7 +51,7 @@ Salary slip kata
          
     ##### Simple salary slip
 
-         Date: 01 September 2016   Salary for period: Sept. 2016
+         Date: 01 Sep 2016            Salary for period: Sep 2016
          
          Employee ID: 12345
          
@@ -64,7 +64,7 @@ Salary slip kata
 
     ##### Salary slip with a bonus or overtime
 
-         Date: 01 September 2016   Salary for period: Sept. 2016
+         Date: 01 Sep 2016            Salary for period: Sep 2016
          
          Employee ID: 12345
          
@@ -77,7 +77,7 @@ Salary slip kata
     
     ##### Mixed Salary slip (bonus, overtime earnings and loan deductions)
 
-         Date: 01 September 2016   Salary for period: Sept. 2016
+         Date: 01 Sep 2016            Salary for period: Sep 2016
          
          Employee ID: 12345
          
