@@ -28,6 +28,7 @@ public class SalarySlipService {
     DateTimeFormatter currentDateFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
     String currentDate = now().format(currentDateFormatter);
     console.print(format("Date: %s            Salary for period: %s%n", currentDate, salaryPeriod));
-    console.print(format("         %n"));
+    console.print(format("%n"));
+    console.print(format("Employee ID: %s%n", employeeId));
   }
 }
