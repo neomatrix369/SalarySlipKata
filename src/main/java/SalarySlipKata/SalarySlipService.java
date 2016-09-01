@@ -5,11 +5,11 @@ import java.time.LocalDate;
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.infrastructure.Console;
 
-public class SalarySlip {
+public class SalarySlipService {
 
   private Console console;
 
-  public SalarySlip(Console console) {
+  public SalarySlipService(Console console) {
     this.console = console;
   }
 
