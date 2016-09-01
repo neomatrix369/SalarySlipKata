@@ -92,19 +92,19 @@ Salary slip kata
 	- All deductions are made on the gross salary (before tax deductions)
 	- All tax deductions must follow the below brackets for the UK: 
 	```
-		Band                 Taxable income        Tax rate
-		Personal Allowance   Up to £11,000             0%
-		Basic rate           £11,001 to £43,000       20%
-		Higher rate          £43,001 to £150,000      40%
-		Additional rate      over £150,000            45%
-	```	
-	- Tax is calculated on gross earnings above the earnings threshold	
+        Band                 Taxable income        Tax rate
+        Personal Allowance   Up to £11,000             0%
+        Basic rate           £11,001 to £43,000       20%
+        Higher rate          £43,001 to £150,000      40%
+        Additional rate      over £150,000            45%
+    ```
+	- Tax is calculated on gross earnings above the earnings threshold
 	- National Insurance is calculated on gross earnings (before tax deductions) above the earnings threshold
 	- National Insurance earnings threshold for the UK:
 	 ```
-      The National Insurance threshold is £155 a week or £620 a month or £8,060 a year
-      If your earnings are below the earnings threshold you pay no National Insurance contributions
-      If you earn above the threshold you pay 12% of your earnings between £8,060 and £43,000 on your annual salary or 2% on your monthly salary
+        The National Insurance threshold is £155 a week or £620 a month or £8,060 a year
+        If your earnings are below the earnings threshold you pay no National Insurance contributions
+        If you earn above the threshold you pay 12% of your earnings between £8,060 and £43,000 on your annual salary or 2% on your monthly salary
      ```
 
 - Resources
