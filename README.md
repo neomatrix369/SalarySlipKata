@@ -25,7 +25,7 @@ Salary slip kata
     
     A printed salary slip will look like the below:
     
-    #### Salary slip template
+    ##### Salary slip template
          
          Date: [Current date]      Salary for period: [Month Year]
          
@@ -38,7 +38,7 @@ Salary slip kata
          
          Grand total     £nnnn.nn  Net payable           £nnnn.nn
          
-    #### Calculations
+    ##### Calculations
      
          Grand total = Basic + sum of all Allowances - sum of all Deductions
          National Insurance = Grand Total - applicable NI percentage
@@ -47,7 +47,7 @@ Salary slip kata
          Total deductables = National Insurance + Tax
          Net payable = Grand Total - Total Deductables
          
-    #### Simple salary slip
+    ##### Simple salary slip
 
          Date: 01 September 2016   Salary for period: Sept. 2016
          
@@ -60,7 +60,7 @@ Salary slip kata
          
          Grand total     £2000.00  Net payable           £1623.93
 
-    #### Salary slip with a bonus or overtime
+    ##### Salary slip with a bonus or overtime
 
          Date: 01 September 2016   Salary for period: Sept. 2016
          
@@ -73,7 +73,7 @@ Salary slip kata
          
          Grand total     £3000.00  Net payable           £2303.93
     
-    #### Mixed Salary slip (bonus, overtime earnings and loan deductions)
+    ##### Mixed Salary slip (bonus, overtime earnings and loan deductions)
 
          Date: 01 September 2016   Salary for period: Sept. 2016
          
