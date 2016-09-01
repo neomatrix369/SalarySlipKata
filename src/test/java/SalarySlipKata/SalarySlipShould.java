@@ -1,3 +1,3 @@
-public class MyClassShould {
+public class SalaySlipShould {
 
 }
