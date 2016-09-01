@@ -1,3 +1,5 @@
-public class MyClass {
+package SalarySlipKata;
+
+public class SalarySlip {
 
 }

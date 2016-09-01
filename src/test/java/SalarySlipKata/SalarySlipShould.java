@@ -1,3 +1,5 @@
-public class MyClassShould {
+package SalarySlipKata;
+
+public class SalarySlipShould {
 
 }
