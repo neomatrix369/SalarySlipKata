@@ -34,7 +34,7 @@ Salary slip kata
          SALARY                    DEDUCTION
          Basic           £nnnn.nn  National Insurance     £nnn.nn
          ...                  ...  Tax                    £nnn.nn
-         ...                  ...  ...                    ...
+         ...                  ...  ...                        ...
          
          Grand total     £nnnn.nn  Net payable           £nnnn.nn
          
