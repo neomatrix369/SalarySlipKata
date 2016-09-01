@@ -9,7 +9,7 @@ import SalarySlipKata.domain.GBP;
 import SalarySlipKata.domain.BasicSalary;
 import SalarySlipKata.domain.SalaryItem;
 
-public class SalaryRepository {
+public class SalaryService {
   private Map<EmployeeId, SalaryItem> salaries = new HashMap<>();
 
   public GBP getBasicSalaryFor(EmployeeId employeeId) {

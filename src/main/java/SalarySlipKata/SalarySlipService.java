@@ -8,12 +8,12 @@ import java.time.format.DateTimeFormatter;
 
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.infrastructure.Console;
-import SalarySlipKata.infrastructure.SalaryRepository;
+import SalarySlipKata.infrastructure.SalaryService;
 
 public class SalarySlipService {
 
   private Console console;
-  private SalaryRepository salaryRepository = new SalaryRepository();
+  private SalaryService salaryRepository = new SalaryService();
 
   public SalarySlipService(Console console) {
     this.console = console;
@@ -33,7 +33,6 @@ public class SalarySlipService {
     console.print(format("%n"));
     console.print(format("Employee ID: %s%n", employeeId));
     console.print(format("SALARY                    DEDUCTION%n"));
-//                          Basic           £2000.00  National Insurance     £159.40
     console.print(format("Basic           %s  National Insurance     %s",
         salaryRepository.getBasicSalaryFor(employeeId),
         salaryRepository.getNationalInsuranceFor(employeeId)));
