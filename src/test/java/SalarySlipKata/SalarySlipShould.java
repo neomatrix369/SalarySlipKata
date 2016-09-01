@@ -1,3 +1,5 @@
-public class SalaySlipShould {
+package SalarySlipKata;
+
+public class SalarySlipShould {
 
 }
