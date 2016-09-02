@@ -2,24 +2,34 @@ package SalarySlipKata;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static java.time.LocalDate.parse;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import SalarySlipKata.application_service.SalarySlipService;
+import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
+import SalarySlipKata.infrastructure.Clock;
 import SalarySlipKata.infrastructure.Console;
 
 public class SalarySlipServiceShould {
   private static final EmployeeId EMPLOYEE_ID_12345 = new EmployeeId(12345);
 
   private Console console;
+  private Clock clock;
+
   private SalarySlipService salarySlipService;
 
   @Before
   public void initialise() {
     console = mock(Console.class);
-    salarySlipService = new SalarySlipService(console);
+    clock = mock(Clock.class);
+
+    when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
+
+    salarySlipService = new SalarySlipService(console, clock);
   }
 
   @Test public void
