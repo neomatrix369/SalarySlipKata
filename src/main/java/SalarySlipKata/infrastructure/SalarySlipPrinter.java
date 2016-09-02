@@ -1,5 +1,6 @@
 package SalarySlipKata.infrastructure;
 
+import static java.lang.String.*;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 import java.time.LocalDate;
@@ -24,19 +25,26 @@ public class SalarySlipPrinter {
     String salaryPeriod =
         getFormattedDate("MMM yyyy", clock.getCurrentDate());
 
-    console.print(String.format("Date: %s            Salary for period: %s%n", currentDate, salaryPeriod));
-    console.print(String.format("%n"));
-    console.print(String.format("Employee ID: %s%n", employeeId));
-    console.print(String.format("SALARY                    DEDUCTION%n"));
-    console.print(String.format("Basic           %s  National Insurance     %s%n",
-        salaryService.getBasicSalaryFor(employeeId),
-        salaryService.getNationalInsuranceFor(employeeId))
-    );
-    console.print(String.format("                          Tax                    %s%n",
-        salaryService.getTax(employeeId)));
-    console.print(String.format("Grand total     %s  Net payable           %s",
-        salaryService.getGrandTotal(employeeId),
-        salaryService.getNetPayable(employeeId))
+    console.print(
+        format("Date: %s            Salary for period: %s%n" +
+               "                                                        %n" +
+               "Employee ID: %s                                      %n" +
+               "                                                        %n" +
+               "SALARY                    DEDUCTION                     %n" +
+               "Basic           %s  National Insurance     %s%n" +
+               "                          Tax                    %s%n" +
+               "                                                        %n" +
+               "                                                        %n" +
+               "Grand total     %s  Net payable           %s",
+            currentDate,
+            salaryPeriod,
+            employeeId,
+            salaryService.getBasicSalaryFor(employeeId),
+            salaryService.getNationalInsuranceFor(employeeId),
+            salaryService.getTax(employeeId),
+            salaryService.getGrandTotal(employeeId),
+            salaryService.getNetPayable(employeeId)
+        )
     );
   }
 
