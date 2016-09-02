@@ -13,6 +13,7 @@ import SalarySlipKata.domain.GBP;
 import SalarySlipKata.donain_service.EmployeeSalaryRepository;
 import SalarySlipKata.donain_service.NationalInsuranceCalculatorService;
 import SalarySlipKata.donain_service.SalaryService;
+import SalarySlipKata.donain_service.TaxCalculatorService;
 import SalarySlipKata.infrastructure.Clock;
 import SalarySlipKata.infrastructure.Console;
 import SalarySlipKata.infrastructure.StandardSalarySlipPrinter;
@@ -24,10 +25,12 @@ public class SalarySlipPrinterShould {
   private Clock clock;
 
   private SalaryService salaryService;
+
   private EmployeeSalaryRepository employeeSalaryRepository;
   private StandardSalarySlipPrinter standardSalarySlipPrinter;
 
   private NationalInsuranceCalculatorService nationalInsuranceCalculatorService;
+  private TaxCalculatorService taxCalculatorService;
 
   @Before
   public void initialise() {
@@ -37,7 +40,9 @@ public class SalarySlipPrinterShould {
     employeeSalaryRepository = new EmployeeSalaryRepository();
 
     nationalInsuranceCalculatorService = new NationalInsuranceCalculatorService();
-    salaryService = new SalaryService(employeeSalaryRepository, nationalInsuranceCalculatorService);
+    taxCalculatorService = new TaxCalculatorService();
+    salaryService =
+        new SalaryService(employeeSalaryRepository, nationalInsuranceCalculatorService, taxCalculatorService);
 
     standardSalarySlipPrinter = new StandardSalarySlipPrinter(console, clock, salaryService);
   }
