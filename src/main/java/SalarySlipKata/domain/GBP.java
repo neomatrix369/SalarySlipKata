@@ -25,16 +25,20 @@ public class GBP {
     return new GBP(this.value - value);
   }
 
+  public GBP plus(GBP value) {
+    return new GBP(this.value + value.value);
+  }
+
   public GBP minus(double value) {
     return new GBP(this.value - value);
   }
 
-  public boolean isGreaterThanZero() {
-    return isGreaterThan(0.00);
+  public GBP minus(GBP value) {
+    return new GBP(this.value - value.value);
   }
 
-  public boolean isGreaterThan(double value) {
-    return this.value > value;
+  public boolean isGreaterThanZero() {
+    return this.value > 0.00;
   }
 
   public boolean isGreaterThanOrEqualTo(double value) {

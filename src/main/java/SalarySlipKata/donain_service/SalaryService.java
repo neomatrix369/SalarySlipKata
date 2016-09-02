@@ -58,4 +58,15 @@ public class SalaryService {
     }
     return new GBP(0.00);
   }
+
+  public GBP getGrandTotal(EmployeeId employeeId) {
+    return getBasicSalaryFor(employeeId);
+  }
+
+  public GBP getNetPayable(EmployeeId employeeId) {
+    final GBP nationalInsurance = getNationalInsuranceFor(employeeId);
+    final GBP tax = getTax(employeeId);
+    GBP deductions = nationalInsurance.plus(tax);
+    return getBasicSalaryFor(employeeId).minus(deductions);
+  }
 }

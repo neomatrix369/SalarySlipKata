@@ -40,6 +40,10 @@ public class SalarySlipService {
     );
     console.print(format("                          Tax                    %s%n",
         salaryService.getTax(employeeId)));
+    console.print(format("Grand total     %s  Net payable           %s",
+        salaryService.getGrandTotal(employeeId),
+        salaryService.getNetPayable(employeeId))
+    );
   }
 
   private String getFormattedDate(String pattern, LocalDate date) {
