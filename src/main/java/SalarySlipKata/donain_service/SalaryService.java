@@ -1,10 +1,10 @@
-package SalarySlipKata.infrastructure;
+package SalarySlipKata.donain_service;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
-import SalarySlipKata.EmployeeId;
+import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.domain.BasicSalary;
 import SalarySlipKata.domain.SalaryItem;
