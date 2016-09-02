@@ -9,6 +9,21 @@ import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.donain_service.SalaryService;
 
 public class SalarySlipPrinter {
+  private static final String CURRENT_DATE_FORMAT = "dd MMM yyyy";
+  private static final String SALARY_PERIOD_FORMAT = "MMM yyyy";
+
+  private static final String STANDARD_PAY_SLIP_FORMAT =
+      "Date: %s            Salary for period: %s%n" +
+              "                                                        %n" +
+              "Employee ID: %s                                      %n" +
+              "                                                        %n" +
+              "SALARY                    DEDUCTION                     %n" +
+              "Basic           %s  National Insurance     %s%n" +
+              "                          Tax                    %s%n" +
+              "                                                        %n" +
+              "                                                        %n" +
+              "Grand total     %s  Net payable           %s";
+
   private final Console console;
   private final Clock clock;
   private final SalaryService salaryService;
@@ -21,21 +36,12 @@ public class SalarySlipPrinter {
 
   public void printSalaryFor(EmployeeId employeeId) {
     String currentDate =
-        getFormattedDate("dd MMM yyyy", clock.getCurrentDate());
+        getFormattedDate(CURRENT_DATE_FORMAT, clock.getCurrentDate());
     String salaryPeriod =
-        getFormattedDate("MMM yyyy", clock.getCurrentDate());
+        getFormattedDate(SALARY_PERIOD_FORMAT, clock.getCurrentDate());
 
     console.print(
-        format("Date: %s            Salary for period: %s%n" +
-               "                                                        %n" +
-               "Employee ID: %s                                      %n" +
-               "                                                        %n" +
-               "SALARY                    DEDUCTION                     %n" +
-               "Basic           %s  National Insurance     %s%n" +
-               "                          Tax                    %s%n" +
-               "                                                        %n" +
-               "                                                        %n" +
-               "Grand total     %s  Net payable           %s",
+        format(STANDARD_PAY_SLIP_FORMAT,
             currentDate,
             salaryPeriod,
             employeeId,
