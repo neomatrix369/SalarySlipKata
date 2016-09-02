@@ -27,13 +27,12 @@ public class SalarySlipServiceShould {
     console = mock(Console.class);
     clock = mock(Clock.class);
 
-    when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
-
     salarySlipService = new SalarySlipService(console, clock);
   }
 
   @Test public void
   display_a_simple_salary_slip_for_an_employee_receiving_just_basic_salary() {
+    when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
     salarySlipService.addBasicSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
 
     salarySlipService.printSalaryFor(EMPLOYEE_ID_12345);
