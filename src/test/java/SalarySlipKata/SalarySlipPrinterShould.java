@@ -11,6 +11,7 @@ import org.junit.Test;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.donain_service.EmployeeSalaryRepository;
+import SalarySlipKata.donain_service.NationalInsuranceCalculatorService;
 import SalarySlipKata.donain_service.SalaryService;
 import SalarySlipKata.infrastructure.Clock;
 import SalarySlipKata.infrastructure.Console;
@@ -26,6 +27,8 @@ public class SalarySlipPrinterShould {
   private EmployeeSalaryRepository employeeSalaryRepository;
   private StandardSalarySlipPrinter standardSalarySlipPrinter;
 
+  private NationalInsuranceCalculatorService nationalInsuranceCalculatorService;
+
   @Before
   public void initialise() {
     console = mock(Console.class);
@@ -33,7 +36,9 @@ public class SalarySlipPrinterShould {
 
     employeeSalaryRepository = new EmployeeSalaryRepository();
 
-    salaryService = new SalaryService(employeeSalaryRepository);
+    nationalInsuranceCalculatorService = new NationalInsuranceCalculatorService();
+    salaryService = new SalaryService(employeeSalaryRepository, nationalInsuranceCalculatorService);
+
     standardSalarySlipPrinter = new StandardSalarySlipPrinter(console, clock, salaryService);
   }
 
