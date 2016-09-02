@@ -1,4 +1,4 @@
-package SalarySlipKata.application_service;
+package SalarySlipKata.infrastructure;
 
 import static java.time.format.DateTimeFormatter.ofPattern;
 
@@ -6,15 +6,13 @@ import java.time.LocalDate;
 
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.donain_service.SalaryService;
-import SalarySlipKata.infrastructure.Clock;
-import SalarySlipKata.infrastructure.Console;
 
-public class SimpleSalarySlipPrinter {
+public class SalarySlipPrinter {
   private final Console console;
   private final Clock clock;
   private final SalaryService salaryService;
 
-  public SimpleSalarySlipPrinter(Console console, Clock clock, SalaryService salaryService) {
+  public SalarySlipPrinter(Console console, Clock clock, SalaryService salaryService) {
     this.console = console;
     this.clock = clock;
     this.salaryService = salaryService;
