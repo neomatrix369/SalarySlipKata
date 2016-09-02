@@ -13,7 +13,7 @@ public class SalarySlipService {
 
   private final SalarySlipPrinter salarySlipPrinter;
 
-  private SalaryService salaryService;
+  private final SalaryService salaryService;
 
   public SalarySlipService(Console console, Clock clock, SalaryService salaryService) {
     this.salaryService = salaryService;

@@ -3,7 +3,7 @@ package SalarySlipKata.domain;
 import static java.lang.String.format;
 
 public class GBP {
-  private double denomination;
+  private final double denomination;
 
   public GBP(double anotherDenomination) {
     this.denomination = anotherDenomination;

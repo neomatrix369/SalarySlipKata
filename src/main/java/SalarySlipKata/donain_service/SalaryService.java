@@ -20,7 +20,7 @@ public class SalaryService {
   private static final double TWELVE_PERCENT = 0.12;
   private static final double TWENTY_PERCENT = 0.20;
 
-  private Map<EmployeeId, SalaryItem> salaries = new HashMap<>();
+  private final Map<EmployeeId, SalaryItem> salaries = new HashMap<>();
 
   public void addBasicSalaryFor(EmployeeId employeeId, GBP amount, LocalDate date) {
     salaries.put(employeeId, new BasicSalary(amount, date));
