@@ -1,13 +1,9 @@
 package SalarySlipKata.donain_service;
 
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
-import SalarySlipKata.domain.BasicSalary;
-import SalarySlipKata.domain.SalaryItem;
 
 public class SalaryService {
   private static final double ANNUAL_NATIONAL_INSURANCE_THRESHOLD = 8060.00;
@@ -20,15 +16,18 @@ public class SalaryService {
   private static final double TWELVE_PERCENT = 0.12;
   private static final double TWENTY_PERCENT = 0.20;
 
-  private final Map<EmployeeId, SalaryItem> salaries = new HashMap<>();
+  private final EmployeeSalaryRepository employeeSalaryRepository;
+
+  public SalaryService(EmployeeSalaryRepository employeeSalaryRepository) {
+    this.employeeSalaryRepository = employeeSalaryRepository;
+  }
 
   public void addBasicSalaryFor(EmployeeId employeeId, GBP amount, LocalDate date) {
-    salaries.put(employeeId, new BasicSalary(amount, date));
+    employeeSalaryRepository.addBasicSalaryFor(employeeId, amount, date);
   }
 
   public GBP getBasicSalaryFor(EmployeeId employeeId) {
-    final SalaryItem salaryItem = salaries.get(employeeId);
-    return salaryItem.getAmount();
+    return employeeSalaryRepository.getBasicSalaryFor(employeeId);
   }
 
   public GBP getNationalInsuranceFor(EmployeeId employeeId) {

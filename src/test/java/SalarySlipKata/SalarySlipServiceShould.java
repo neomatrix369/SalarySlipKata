@@ -11,6 +11,7 @@ import org.junit.Test;
 import SalarySlipKata.application_service.SalarySlipService;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
+import SalarySlipKata.donain_service.EmployeeSalaryRepository;
 import SalarySlipKata.donain_service.SalaryService;
 import SalarySlipKata.infrastructure.Clock;
 import SalarySlipKata.infrastructure.Console;
@@ -23,20 +24,23 @@ public class SalarySlipServiceShould {
 
   private SalarySlipService salarySlipService;
   private SalaryService salaryService;
+  private EmployeeSalaryRepository employeeSalaryRepository;
 
   @Before
   public void initialise() {
     console = mock(Console.class);
     clock = mock(Clock.class);
-    salaryService = new SalaryService();
 
+    employeeSalaryRepository = new EmployeeSalaryRepository();
+
+    salaryService = new SalaryService(employeeSalaryRepository);
     salarySlipService = new SalarySlipService(console, clock, salaryService);
   }
 
   @Test public void
   display_a_simple_salary_slip_for_an_employee_receiving_just_basic_salary() {
     when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
-    salarySlipService.addBasicSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
+    salaryService.addBasicSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
 
     salarySlipService.printSalaryFor(EMPLOYEE_ID_12345);
 
