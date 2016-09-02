@@ -9,21 +9,29 @@ Salary slip kata
 - Problem description: 
 	Salary slip generator for UK companies.
 
-    - Create a Salary slip generator application with the following features:
-        - Record someone's base salary
-        - Record overtime
-        - Record bonus
-        - Print a salary slip at the end of the month
-    
-    - Bonus features:
-        - Record an expense on the salary slip (before tax deduction)
-        - Record a deduction on the salary slip (before tax deduction)
-        - Salary slip can be printed to a PDF file (future feature)
-
     To keep the employee details anonymous we will only be using `employee id` as a way to refer to an employee.
     Which means salary additions and retrieval of salary slips will be via the use of the `employee id`.     
+
+    - Create a Salary slip generator application with the following features:
+
+        - Register someone's basic salary
+          When a new employee joins a company, he/she is given an employee id and their basic salary is also added to the salary system
+        - Register overtime for a month
+          Overtimes are recorded for the employee at the end of the month, and shown on the salary slip as any other income
+        - Register bonus for a month
+          Once a year when bonus is given to the employee, is also shown on the salary slip as any other income
+        - Print a salary slip to the console at any time for a given month
+          A salary slip for any month can be displayed on the console 
     
-    A printed salary slip will look like the below:
+    - Bonus features: // make these into smaller stories
+        - Record an expense on the salary slip under allowance (before tax deduction)
+          Expense allowances are things like medical insurance, travel expenses, etc...
+        - Record an deductions on the salary slip (before tax deduction)
+          Deductions can be personal loans taken or payment of Student loans or Pension.
+          Such deductions are applied on the Gross Salary before any tax deductions.                                                                            
+        - Salary slip can be printed to a CSV file (future feature)
+    
+    A salary slip printed on the console, will look like the below:
     
     ##### Salary slip template
          
@@ -40,7 +48,7 @@ Salary slip kata
          
     ##### Calculations
      
-         Grand total        = Basic + sum of all Allowances - sum of all Deductions
+         Grand total        = Basic Salary + sum of all Allowances - sum of all Deductions
          National Insurance = Grand Total - applicable NI percentage
          (see below for NI deduction table)
          Taxable Income     = Grand Total - Personal Allowance 
