@@ -14,7 +14,7 @@ import SalarySlipKata.donain_service.EmployeeSalaryRepository;
 import SalarySlipKata.donain_service.SalaryService;
 import SalarySlipKata.infrastructure.Clock;
 import SalarySlipKata.infrastructure.Console;
-import SalarySlipKata.infrastructure.SalarySlipPrinter;
+import SalarySlipKata.infrastructure.StandardSalarySlipPrinter;
 
 public class SalarySlipPrinterShould {
   private static final EmployeeId EMPLOYEE_ID_12345 = new EmployeeId(12345);
@@ -24,7 +24,7 @@ public class SalarySlipPrinterShould {
 
   private SalaryService salaryService;
   private EmployeeSalaryRepository employeeSalaryRepository;
-  private SalarySlipPrinter salarySlipPrinter;
+  private StandardSalarySlipPrinter standardSalarySlipPrinter;
 
   @Before
   public void initialise() {
@@ -34,7 +34,7 @@ public class SalarySlipPrinterShould {
     employeeSalaryRepository = new EmployeeSalaryRepository();
 
     salaryService = new SalaryService(employeeSalaryRepository);
-    salarySlipPrinter = new SalarySlipPrinter(console, clock, salaryService);
+    standardSalarySlipPrinter = new StandardSalarySlipPrinter(console, clock, salaryService);
   }
 
   @Test public void
@@ -42,7 +42,7 @@ public class SalarySlipPrinterShould {
     when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
     salaryService.addBasicSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
 
-    salarySlipPrinter.printSalaryFor(EMPLOYEE_ID_12345);
+    standardSalarySlipPrinter.printSalaryFor(EMPLOYEE_ID_12345);
 
     verify(console).print(
         "Date: 01 Sep 2016            Salary for period: Sep 2016\n" +

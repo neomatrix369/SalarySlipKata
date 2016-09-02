@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.donain_service.SalaryService;
 
-public class SalarySlipPrinter {
+public class StandardSalarySlipPrinter {
   private static final String CURRENT_DATE_FORMAT = "dd MMM yyyy";
   private static final String SALARY_PERIOD_FORMAT = "MMM yyyy";
 
@@ -28,7 +28,7 @@ public class SalarySlipPrinter {
   private final Clock clock;
   private final SalaryService salaryService;
 
-  public SalarySlipPrinter(Console console, Clock clock, SalaryService salaryService) {
+  public StandardSalarySlipPrinter(Console console, Clock clock, SalaryService salaryService) {
     this.console = console;
     this.clock = clock;
     this.salaryService = salaryService;
