@@ -1,4 +1,4 @@
-package SalarySlipKata;
+package SalarySlipKata.domain;
 
 import static java.lang.String.valueOf;
 
