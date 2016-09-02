@@ -11,6 +11,7 @@ import org.junit.Test;
 import SalarySlipKata.application_service.SalarySlipService;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
+import SalarySlipKata.donain_service.SalaryService;
 import SalarySlipKata.infrastructure.Clock;
 import SalarySlipKata.infrastructure.Console;
 
@@ -21,13 +22,15 @@ public class SalarySlipServiceShould {
   private Clock clock;
 
   private SalarySlipService salarySlipService;
+  private SalaryService salaryService;
 
   @Before
   public void initialise() {
     console = mock(Console.class);
     clock = mock(Clock.class);
+    salaryService = new SalaryService();
 
-    salarySlipService = new SalarySlipService(console, clock);
+    salarySlipService = new SalarySlipService(console, clock, salaryService);
   }
 
   @Test public void
