@@ -3,54 +3,54 @@ package SalarySlipKata.domain;
 import static java.lang.String.format;
 
 public class GBP {
-  private double value;
+  private double denomination;
 
-  public GBP(double value) {
-    this.value = value;
+  public GBP(double anotherDenomination) {
+    this.denomination = anotherDenomination;
   }
 
   public GBP(GBP amount) {
-    this.value = amount.value;
+    this.denomination = amount.denomination;
   }
 
   public GBP multiplyBy(double value) {
-    return new GBP(this.value * value);
+    return new GBP(this.denomination * value);
   }
 
   public GBP dividedBy(int value) {
-    return new GBP(this.value / 12);
+    return new GBP(this.denomination / value);
   }
 
-  public GBP differenceFrom(double value) {
-    return new GBP(this.value - value);
+  public GBP differenceFrom(double anotherDenomination) {
+    return new GBP(this.denomination - anotherDenomination);
   }
 
-  public GBP plus(GBP value) {
-    return new GBP(this.value + value.value);
+  public GBP plus(GBP amount) {
+    return new GBP(this.denomination + amount.denomination);
   }
 
-  public GBP minus(double value) {
-    return new GBP(this.value - value);
+  public GBP minus(double anotherDenomination) {
+    return new GBP(this.denomination - anotherDenomination);
   }
 
-  public GBP minus(GBP value) {
-    return new GBP(this.value - value.value);
+  public GBP minus(GBP amount) {
+    return new GBP(this.denomination - amount.denomination);
   }
 
   public boolean isGreaterThanZero() {
-    return this.value > 0.00;
+    return this.denomination > 0.00;
   }
 
-  public boolean isGreaterThanOrEqualTo(double value) {
-    return this.value >= value;
+  public boolean isGreaterThanOrEqualTo(double anotherDenomination) {
+    return this.denomination >= anotherDenomination;
   }
 
-  public boolean isLessThanOrEqualTo(double value)  {
-    return this.value <= value;
+  public boolean isLessThanOrEqualTo(double anotherDenomination)  {
+    return this.denomination <= anotherDenomination;
   }
 
   @Override
   public String toString() {
-    return format("£%.2f", value);
+    return format("£%.2f", denomination);
   }
 }
