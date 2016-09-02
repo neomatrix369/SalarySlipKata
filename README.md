@@ -57,7 +57,7 @@ Salary slip kata
          Total deductables  = National Insurance + Tax
          Net payable        = Grand Total - Total Deductables
          
-    ##### Simple salary slip
+    ##### Standard salary slip
 
          Date: 01 Sep 2016            Salary for period: Sep 2016
          
