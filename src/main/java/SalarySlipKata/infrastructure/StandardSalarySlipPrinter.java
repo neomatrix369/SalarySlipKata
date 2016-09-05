@@ -14,15 +14,15 @@ public class StandardSalarySlipPrinter {
 
   private static final String STANDARD_PAY_SLIP_FORMAT =
       "Date: %s            Salary for period: %s%n" +
-              "                                                        %n" +
-              "Employee ID: %s                                      %n" +
-              "                                                        %n" +
-              "SALARY                    DEDUCTION                     %n" +
-              "Basic           %s  National Insurance     %s%n" +
-              "                          Tax                    %s%n" +
-              "                                                        %n" +
-              "                                                        %n" +
-              "Grand total     %s  Net payable           %s";
+      "                                                        %n" +
+      "Employee ID: %s                                      %n" +
+      "                                                        %n" +
+      "SALARY                    DEDUCTION                     %n" +
+      "Basic           %s  National Insurance     %s%n" +
+      "                          Tax                    %s%n" +
+      "                                                        %n" +
+      "                                                        %n" +
+      "Grand total     %s  Net payable           %s";
 
   private final Console console;
   private final Clock clock;
