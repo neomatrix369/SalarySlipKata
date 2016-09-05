@@ -1,9 +1,6 @@
-package SalarySlipKata.donain_service;
+package SalarySlipKata.domain;
 
 import java.time.LocalDate;
-
-import SalarySlipKata.domain.GBP;
-import SalarySlipKata.domain.SalaryItem;
 
 public class Overtime implements SalaryItem {
   private final GBP amount;

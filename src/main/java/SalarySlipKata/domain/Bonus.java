@@ -1,9 +1,6 @@
-package SalarySlipKata.donain;
+package SalarySlipKata.domain;
 
 import java.time.LocalDate;
-
-import SalarySlipKata.domain.GBP;
-import SalarySlipKata.domain.SalaryItem;
 
 public class Bonus implements SalaryItem {
   private final GBP amount;

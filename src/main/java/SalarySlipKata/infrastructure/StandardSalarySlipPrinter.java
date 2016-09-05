@@ -21,9 +21,9 @@ public class StandardSalarySlipPrinter {
       "Employee ID: %s                                      %n" +
       "                                                        %n" +
       "SALARY                    DEDUCTION                     %n" +
-      "Basic           %s  National Insurance    %s%n" +
-      "Bonus           %s  Tax                   %s%n" +
-      "Overtime        %s                                %n" +
+      "Basic           %s  Loan                  %s%n" +
+      "Bonus           %s  National Insurance    %s%n" +
+      "Overtime        %s  Tax                   %s%n" +
       "                                                        %n" +
       "Gross salary    %s  Net payable           %s";
 
@@ -49,10 +49,11 @@ public class StandardSalarySlipPrinter {
             salaryPeriod,
             employeeId,
             leftPadWithSpaces(salaryService.getBasicSalaryFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getNationalInsuranceFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getLoanFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getBonus(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getTax(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getNationalInsuranceFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getOvertime(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getTax(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getGrossSalary(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getNetPayable(employeeId), FIXED_LENGTH_FOR_AMOUNT)
         )

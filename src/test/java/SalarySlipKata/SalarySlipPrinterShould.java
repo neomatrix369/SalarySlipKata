@@ -53,6 +53,7 @@ public class SalarySlipPrinterShould {
     salaryService.addBasicSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
     salaryService.addBonusFor(EMPLOYEE_ID_12345, new GBP(1000.00), parse("2016-09-01"));
     salaryService.addOvertimeFor(EMPLOYEE_ID_12345, new GBP(500.00), parse("2016-09-01"));
+    salaryService.addLoanFor(EMPLOYEE_ID_12345, new GBP(200.00), parse("2016-09-01"));
 
     standardSalarySlipPrinter.printSalaryFor(EMPLOYEE_ID_12345);
 
@@ -62,11 +63,11 @@ public class SalarySlipPrinterShould {
         "Employee ID: 12345                                      \n" +
         "                                                        \n" +
         "SALARY                    DEDUCTION                     \n" +
-        "Basic           £2000.00  National Insurance     £339.40\n" +
-        "Bonus           £1000.00  Tax                    £516.67\n" +
-        "Overtime         £500.00                                \n" +
+        "Basic           £2000.00  Loan                   £200.00\n" +
+        "Bonus           £1000.00  National Insurance     £315.40\n" +
+        "Overtime         £500.00  Tax                    £476.67\n" +
         "                                                        \n" +
-        "Gross salary    £3500.00  Net payable           £2643.93"
+        "Gross salary    £3300.00  Net payable           £2507.93"
     );
   } 
 }
