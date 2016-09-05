@@ -1,14 +1,14 @@
 Salary slip kata
 ================
-- Problem description: Salary slip generator application for UK companies.
+- Problem description: Salary slip generator application for UK companies
 
-### Scenario 1 - add employee basic salary and print salary slip to console
+### Scenario 1 - add employee basic salary and print a salary slip on the screen
     
-  Given I add the employee id
+  Given I have added the employee id
   And the employee's name
   And the employee's basic salary
   When I print the salary slip
-  Then it should display the below salary slip to the screen:
+  Then it should display the below on the screen:
   ```
          Date: 01 Sep 2016             Salary for period: Sep 2016
 
@@ -22,8 +22,8 @@ Salary slip kata
 
   Given I have an employee id for an employee
   When I print the salary slip
-  Then it should calculate the respective National Insurance contribution from the Basic Salary
-  And display the below salary slip to the screen:
+  Then it should calculate the respective National Insurance contributions from the Basic Salary
+  And display the below on the screen:
   ```
          Date: 01 Sep 2016             Salary for period: Sep 2016
 
@@ -38,7 +38,7 @@ Salary slip kata
   Given I have an employee id for an employee
   When I print the salary slip
   Then it should calculate the respective Tax to be paid from the Basic Salary
-  And display the below salary slip to the screen:
+  And display the below on the screen:
   ```
          Date: 01 Sep 2016             Salary for period: Sep 2016
          
@@ -52,12 +52,12 @@ Salary slip kata
 ### Scenario 4 - calculate the gross salary after adding a bonus to the basic salary
 
   Given I have an employee id for an employee
-  And have added a Bonus item to the monthly salary
+  And I have added a Bonus to the monthly salary
   When I print the salary slip
   Then it should calculate the Gross Salary (Basic + Bonus)
-  And calculate the respective NI contributions 
+  And calculate the respective NI contributions based on the Gross Salary 
   And the Tax based on the Gross Salary
-  And display the below salary slip to the screen:
+  And display the below on the screen:
   ```
          Date: 01 Sep 2016             Salary for period: Sep 2016
 
@@ -70,16 +70,16 @@ Salary slip kata
          Gross Salary     £3000.00
   ```
 
-### Scenario 5 - calculate the gross salary after adding an overtime to the basic salary 
+### Scenario 5 - calculate the gross salary after adding an overtime to the basic salary and bonus
 
   Given I have an employee id for an employee
-  And have added a Bonus item to the monthly salary
-  And have added an Overtime item to the monthly salary
+  And I have added a Bonus to the monthly salary
+  And I have added an Overtime to the monthly salary
   When I print the salary slip
   Then it should calculate the Gross Salary (Basic + Bonus + Overtime) 
-  And calculate the respective NI contributions 
+  And calculate the respective NI contributions based on the Gross Salary 
   And the Tax based on the Gross Salary
-  And display the below salary slip to the screen:
+  And display the below on the screen:
   ```
          Date: 01 Sep 2016             Salary for period: Sep 2016
 
@@ -96,15 +96,15 @@ Salary slip kata
 ### Scenario 6 - calculate the gross salary after deducting a loan payment 
 
   Given I have an employee id for an employee
-  And have added a Bonus item to the monthly salary
-  And have added an Overtime item to the monthly salary
-  And have added a loan deduction item to the monthly salary
+  And I have added a Bonus to the monthly salary
+  And I have added an Overtime to the monthly salary
+  And have added a Loan deduction to the monthly salary
   When I print the salary slip
   Then it should calculate the Gross Salary (Basic + Bonus + Overtime - Loan) 
-  And calculate the respective NI contributions 
+  And calculate the respective NI contributions based on the Gross Salary 
   And the Tax based on the Gross Salary
-  And the Net payable or salary taken home (Gross Salary - NI - Tax)
-  And display the below salary slip to the screen:
+  And the Net payable or salary to take home (Gross Salary - NI - Tax)
+  And display the below on the screen:
   ```
          Date: 01 Sep 2016             Salary for period: Sep 2016
 
@@ -158,6 +158,7 @@ Salary slip kata
          Additional rate        over £150,000           45%
      ```
      Total deductables  = National Insurance + Tax
+
      Net payable        = Gross Salary - Total Deductables
 
 - Examples of National Insurance contributions and Tax calculations:
