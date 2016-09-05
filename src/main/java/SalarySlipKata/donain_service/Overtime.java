@@ -1,15 +1,15 @@
-package SalarySlipKata.donain;
+package SalarySlipKata.donain_service;
 
 import java.time.LocalDate;
 
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.domain.SalaryItem;
 
-public class Bonus implements SalaryItem {
+public class Overtime implements SalaryItem {
   private final GBP amount;
   private final LocalDate date;
 
-  public Bonus(GBP amount, LocalDate date) {
+  public Overtime(GBP amount, LocalDate date) {
     this.amount = amount;
     this.date = date;
   }

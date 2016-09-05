@@ -6,9 +6,12 @@ import static java.time.format.DateTimeFormatter.ofPattern;
 import java.time.LocalDate;
 
 import SalarySlipKata.domain.EmployeeId;
+import SalarySlipKata.domain.GBP;
 import SalarySlipKata.donain_service.SalaryService;
 
 public class StandardSalarySlipPrinter {
+  private static final int FIXED_LENGTH_FOR_AMOUNT = 8;
+
   private static final String CURRENT_DATE_FORMAT = "dd MMM yyyy";
   private static final String SALARY_PERIOD_FORMAT = "MMM yyyy";
 
@@ -18,11 +21,11 @@ public class StandardSalarySlipPrinter {
       "Employee ID: %s                                      %n" +
       "                                                        %n" +
       "SALARY                    DEDUCTION                     %n" +
-      "Basic           %s  National Insurance     %s%n" +
-      "Bonus           %s  Tax                    %s%n" +
+      "Basic           %s  National Insurance    %s%n" +
+      "Bonus           %s  Tax                   %s%n" +
+      "Overtime        %s                                %n" +
       "                                                        %n" +
-      "                                                        %n" +
-      "Grand total     %s  Net payable           %s";
+      "Gross salary    %s  Net payable           %s";
 
   private final Console console;
   private final Clock clock;
@@ -45,14 +48,19 @@ public class StandardSalarySlipPrinter {
             currentDate,
             salaryPeriod,
             employeeId,
-            salaryService.getBasicSalaryFor(employeeId),
-            salaryService.getNationalInsuranceFor(employeeId),
-            salaryService.getBonus(employeeId),
-            salaryService.getTax(employeeId),
-            salaryService.getGrandTotal(employeeId),
-            salaryService.getNetPayable(employeeId)
+            leftPadWithSpaces(salaryService.getBasicSalaryFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getNationalInsuranceFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getBonus(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getTax(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getOvertime(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getGrossSalary(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getNetPayable(employeeId), FIXED_LENGTH_FOR_AMOUNT)
         )
     );
+  }
+
+  private String leftPadWithSpaces(GBP amount, int totalLength) {
+    return format("%1$"+totalLength+ "s", amount.toString());
   }
 
   private String getFormattedDate(String pattern, LocalDate date) {

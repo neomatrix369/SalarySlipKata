@@ -16,8 +16,9 @@ import SalarySlipKata.domain.SalaryItem;
 import SalarySlipKata.donain.Bonus;
 
 public class EmployeeSalaryRepository {
-  private static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
   private static final SalaryItem NO_BASIC_SALARY = new BasicSalary(new GBP(0.0), now());
+  private static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
+  private static final SalaryItem NO_OVERTIME = new Overtime(new GBP(0.0), now());
 
   private final Map<EmployeeId, List<SalaryItem>> salaries = new HashMap<>();
 
@@ -31,6 +32,10 @@ public class EmployeeSalaryRepository {
     addSalaryToListFor(employeeId, new Bonus(amount, date));
   }
 
+  public void addOvertimeFor(EmployeeId employeeId, GBP amount, LocalDate date) {
+    addSalaryToListFor(employeeId, new Overtime(amount, date));
+  }
+
   private void addSalaryToListFor(EmployeeId employeeId, SalaryItem salaryItem) {
     final List<SalaryItem> list = salaries.getOrDefault(employeeId, new ArrayList<>());
     list.add(salaryItem);
@@ -39,14 +44,18 @@ public class EmployeeSalaryRepository {
   }
 
   public GBP getBasicSalaryFor(EmployeeId employeeId) {
-    return getSalaryFromListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof BasicSalary, NO_BASIC_SALARY);
+    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof BasicSalary, NO_BASIC_SALARY);
   }
 
   public GBP getBonusFor(EmployeeId employeeId) {
-    return getSalaryFromListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Bonus, NO_BONUS);
+    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Bonus, NO_BONUS);
   }
 
-  private GBP getSalaryFromListFor(
+  public GBP getOvertime(EmployeeId employeeId) {
+    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Overtime, NO_OVERTIME);
+  }
+
+  private GBP getFromSalaryListFor(
       EmployeeId employeeId,
       Predicate<SalaryItem> predicate,
       SalaryItem defaultSalaryItem) {
@@ -59,4 +68,5 @@ public class EmployeeSalaryRepository {
         .orElse(defaultSalaryItem)
         .getAmount();
   }
+
 }
