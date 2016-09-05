@@ -5,11 +5,23 @@ Salary slip kata
 
     - Create a Salary slip generator application with the following features:
 
-        - Register someone's basic salary         
-        - Register overtime for a month          
-        - Register bonus for a month
+        - Register employee's basic salary         
+        - Register a overtime for a month          
+        - Register a bonus for a month
         - Register a loan deduction for a month
-        - Print a salary slip to the console at any time for a given month 
+        - Print a salary slip to the console at any time for a given month
+         
+    The entry point should be the following interface, which you can not change:
+    
+    ```java
+    
+        public class SalarySlipGenerator {
+            public void addEarningsFor(EmployeeId employeeId, GBP amount, LocalDate date);
+            public void applyDeductionsFor(EmployeeId employeeId, GBP amount, LocalDate date);
+            public void printSalarySlipFor(EmployeeId employeeId);
+        }
+    
+    ```
     
     A salary slip printed on the console, will look like the below:
     
@@ -24,17 +36,17 @@ Salary slip kata
          Bonus           £1000.00  National Insurance     £315.40
          Overtime         £500.00  Tax                    £467.67
          
-         Grand total     £3300.00  Net payable           £2507.93
+         Gross Salary     £3300.00  Net payable           £2507.93
 
 - Acceptance criteria:
     - Should accept EmployeeId, employee Name and Basic Salary
-	- Should print an employee's salary slip
+    - Should print an employee's salary slip
 
 - Calculations
          
-     Grand total        = Basic Salary + sum of all earnings/allowances - sum of all Deductions
+     Gross Salary       = Basic Salary + sum of all earnings/allowances - sum of all deductions
 
-     National Insurance = Grand Total - applicable NI percentage
+     National Insurance = Gross Salary - applicable NI percentage
      National Insurance earnings threshold for the UK:
      ```
          Band                  NI deducable income     Rate
@@ -44,7 +56,7 @@ Salary slip kata
          Higher contributions  over £43,000             2%
       ```
 
-     Taxable Income     = Grand Total - Personal Allowance 
+     Taxable Income     = Gross Salary - Personal Allowance 
      Tax                = Taxable Income - applicable tax percentage
      All tax deductions must follow the below brackets for the UK: 
      ```
@@ -56,7 +68,7 @@ Salary slip kata
          Additional rate        over £150,000           45%
      ```
      Total deductables  = National Insurance + Tax
-     Net payable        = Grand Total - Total Deductables
+     Net payable        = Gross Salary - Total Deductables
 
 - Examples of National Insurance contributions and Tax calculations:
 	- National Insurance contributions table:
@@ -89,21 +101,21 @@ Salary slip kata
                                                 and £43,000.00)       and £150,000.00)
                                    0%                   20%                   40%                  45%
       --------------------------------------------------------------------------------------------------------------------------                                    
-       5000.00                        0.00                   0.00                  0.00                0.00                
+                5000.00               0.00                   0.00                  0.00                0.00                
                                       0.00                   0.00                  0.00                0.00                0.00
-       11000.00                       0.00                   0.00                  0.00                0.00                
+               11000.00               0.00                   0.00                  0.00                0.00                
                                       0.00                   0.00                  0.00                0.00                0.00
-       12000.00                       0.00                1000.00                  0.00                0.00                
+               12000.00               0.00                1000.00                  0.00                0.00                
                                       0.00                 200.00                  0.00                0.00              200.00
-       40000.00                       0.00               29000.00                  0.00                0.00                
+               40000.00               0.00               29000.00                  0.00                0.00                
                                       0.00                5800.00                  0.00                0.00             5800.00
-       45000.00                       0.00               32000.00               2000.00                0.00                
+               45000.00               0.00               32000.00               2000.00                0.00                
                                       0.00                6400.00                800.00                0.00             7200.00
-       50000.00                       0.00               32000.00               7000.00                0.00                
+               50000.00               0.00               32000.00               7000.00                0.00                
                                       0.00                6400.00               2800.00                0.00             9200.00
-       60000.00                       0.00               32000.00              17000.00                0.00                
+               60000.00               0.00               32000.00              17000.00                0.00                
                                       0.00                6400.00               6800.00                0.00            13200.00
-       100000.00                      0.00               32000.00              57000.00                0.00                
+              100000.00               0.00               32000.00              57000.00                0.00                
                                       0.00                6400.00              22800.00                0.00            29200.00
     
     ```
