@@ -51,6 +51,7 @@ public class SalarySlipPrinterShould {
   display_a_standard_salary_slip_for_an_employee_receiving_just_basic_salary() {
     when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
     salaryService.addBasicSalaryFor(EMPLOYEE_ID_12345, new GBP(2000.00), parse("2016-09-01"));
+    salaryService.addBonusFor(EMPLOYEE_ID_12345, new GBP(1000.00), parse("2016-09-01"));
 
     standardSalarySlipPrinter.printSalaryFor(EMPLOYEE_ID_12345);
 
@@ -60,11 +61,11 @@ public class SalarySlipPrinterShould {
         "Employee ID: 12345                                      \n" +
         "                                                        \n" +
         "SALARY                    DEDUCTION                     \n" +
-        "Basic           £2000.00  National Insurance     £159.40\n" +
-        "                          Tax                    £216.67\n" +
+        "Basic           £2000.00  National Insurance     £279.40\n" +
+        "Bonus           £1000.00  Tax                    £416.67\n" +
         "                                                        \n" +
         "                                                        \n" +
-        "Grand total     £2000.00  Net payable           £1623.93"
+        "Grand total     £3000.00  Net payable           £2303.93"
     );
   } 
 }

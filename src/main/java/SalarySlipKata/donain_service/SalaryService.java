@@ -24,24 +24,33 @@ public class SalaryService {
     employeeSalaryRepository.addBasicSalaryFor(employeeId, amount, date);
   }
 
+  public void addBonusFor(EmployeeId employeeId, GBP amount, LocalDate date) {
+    employeeSalaryRepository.addBonusFor(employeeId, amount, date);
+  }
+
+  public GBP getGrandTotal(EmployeeId employeeId) {
+    return getBasicSalaryFor(employeeId)
+        .plus(getBonus(employeeId));
+  }
+
   public GBP getBasicSalaryFor(EmployeeId employeeId) {
     return employeeSalaryRepository.getBasicSalaryFor(employeeId);
   }
 
+  public GBP getBonus(EmployeeId employeeId) {
+    return employeeSalaryRepository.getBonusFor(employeeId);
+  }
+
   public GBP getNationalInsuranceFor(EmployeeId employeeId) {
-    return nationalInsuranceCalculatorService.calculate(getBasicSalaryFor(employeeId));
+    return nationalInsuranceCalculatorService.calculate(getGrandTotal(employeeId));
   }
 
   public GBP getTax(EmployeeId employeeId) {
-    return taxCalculatorService.calculate(getBasicSalaryFor(employeeId));
-  }
-
-  public GBP getGrandTotal(EmployeeId employeeId) {
-    return getBasicSalaryFor(employeeId);
+    return taxCalculatorService.calculate(getGrandTotal(employeeId));
   }
 
   public GBP getNetPayable(EmployeeId employeeId) {
-    final GBP nationalInsurance = nationalInsuranceCalculatorService.calculate(getBasicSalaryFor(employeeId));
+    final GBP nationalInsurance = getNationalInsuranceFor(employeeId);
     final GBP deductions = nationalInsurance.plus(getTax(employeeId));
     return getGrandTotal(employeeId).minus(deductions);
   }

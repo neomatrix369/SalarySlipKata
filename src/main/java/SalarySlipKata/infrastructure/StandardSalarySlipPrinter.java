@@ -19,7 +19,7 @@ public class StandardSalarySlipPrinter {
       "                                                        %n" +
       "SALARY                    DEDUCTION                     %n" +
       "Basic           %s  National Insurance     %s%n" +
-      "                          Tax                    %s%n" +
+      "Bonus           %s  Tax                    %s%n" +
       "                                                        %n" +
       "                                                        %n" +
       "Grand total     %s  Net payable           %s";
@@ -47,6 +47,7 @@ public class StandardSalarySlipPrinter {
             employeeId,
             salaryService.getBasicSalaryFor(employeeId),
             salaryService.getNationalInsuranceFor(employeeId),
+            salaryService.getBonus(employeeId),
             salaryService.getTax(employeeId),
             salaryService.getGrandTotal(employeeId),
             salaryService.getNetPayable(employeeId)
