@@ -2,8 +2,8 @@ package SalarySlipKata.domain;
 
 import java.time.LocalDate;
 
-public class Loan extends SalaryItem {
-  public Loan(GBP amount, LocalDate date) {
+public class Basic extends SalaryItem {
+  public Basic(GBP amount, LocalDate date) {
     super(amount, date);
   }
 }

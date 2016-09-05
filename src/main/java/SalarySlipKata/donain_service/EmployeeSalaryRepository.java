@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import SalarySlipKata.domain.BasicSalary;
+import SalarySlipKata.domain.Basic;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.domain.Loan;
@@ -18,7 +18,7 @@ import SalarySlipKata.domain.SalaryItem;
 import SalarySlipKata.domain.Bonus;
 
 public class EmployeeSalaryRepository {
-  private static final SalaryItem NO_BASIC_SALARY = new BasicSalary(new GBP(0.0), now());
+  private static final SalaryItem NO_BASIC_SALARY = new Basic(new GBP(0.0), now());
   private static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
   private static final SalaryItem NO_OVERTIME = new Overtime(new GBP(0.0), now());
   private static final SalaryItem NO_LOAN = new Loan(new GBP(0.0), now());
@@ -28,7 +28,7 @@ public class EmployeeSalaryRepository {
   public EmployeeSalaryRepository() {}
 
   public void addBasicSalaryFor(EmployeeId employeeId, GBP amount, LocalDate date) {
-    addSalaryToListFor(employeeId, new BasicSalary(amount, date));
+    addSalaryToListFor(employeeId, new Basic(amount, date));
   }
 
   public void addBonusFor(EmployeeId employeeId, GBP amount, LocalDate date) {
@@ -51,7 +51,7 @@ public class EmployeeSalaryRepository {
   }
 
   public GBP getBasicSalaryFor(EmployeeId employeeId) {
-    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof BasicSalary, NO_BASIC_SALARY);
+    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Basic, NO_BASIC_SALARY);
   }
 
   public GBP getBonusFor(EmployeeId employeeId) {
