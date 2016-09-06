@@ -38,15 +38,17 @@ public class SalaryService {
   }
 
   public GBP getGrossSalary(EmployeeId employeeId, LocalDate date) {
-    final GBP basicSalary = getBasicSalaryFor(employeeId);
     final GBP sumOfEarningItems = sumSalaryItems(employeeId, date, SalaryItem::isEarning);
     final GBP sumOfDeductions = sumSalaryItems(employeeId, date, SalaryItem::isDeduction);
 
-    return basicSalary.plus(sumOfEarningItems).minus(sumOfDeductions);
+    return getBasicSalaryFor(employeeId)
+        .plus(sumOfEarningItems)
+        .minus(sumOfDeductions);
   }
 
   private GBP sumSalaryItems(EmployeeId employeeId, LocalDate date, Predicate<SalaryItem> bySalaryType) {
-    return salaryRepository.getSalaryItemsFor(employeeId, date)
+    return salaryRepository
+        .getSalaryItemsFor(employeeId, date)
         .stream()
         .filter(bySalaryType)
         .map(SalaryItem::getAmount)
