@@ -21,12 +21,13 @@ Salary slip kata
       ```java
       
           public class SalarySlipGenerator {
-              public void addEarningsFor(EmployeeId employeeId, GBP amount, LocalDate date);
-              public void applyDeductionsFor(EmployeeId employeeId, GBP amount, LocalDate date);
-              public void printSalarySlipFor(EmployeeId employeeId);
+              public void addEarningFor(EmployeeId employeeId, new SalaryItem(GBP amount), LocalDate date);
+              public void addDeductionFor(EmployeeId employeeId, new SalaryItem(GBP amount), LocalDate date);
+              public void printFor(EmployeeId employeeId);
           }
       
       ```
+    - Types Basic, Bonus, Overtime and Loan are of sub-types of class SalaryItem 
     - The resulting output must be in the below format: 
       ```
              Date: 01 Sep 2016             Salary for period: Sep 2016
