@@ -1,6 +1,9 @@
 package SalarySlipKata.domain_service;
 
+import static SalarySlipKata.domain.GBP.zero;
+
 import java.time.LocalDate;
+import java.util.function.Predicate;
 
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
@@ -35,22 +38,23 @@ public class SalaryService {
   }
 
   public GBP getGrossSalary(EmployeeId employeeId, LocalDate date) {
-    return getBasicSalaryFor(employeeId)
-        .plus(getBonusFor(employeeId, date))
-        .plus(getOvertimeFor(employeeId, date))
-        .minus(getLoanFor(employeeId, date));
+    final GBP basicSalary = getBasicSalaryFor(employeeId);
+    final GBP sumOfEarningItems = sumSalaryItems(employeeId, date, SalaryItem::isEarning);
+    final GBP sumOfDeductions = sumSalaryItems(employeeId, date, SalaryItem::isDeduction);
+
+    return basicSalary.plus(sumOfEarningItems).minus(sumOfDeductions);
   }
 
-  public GBP getBonusFor(EmployeeId employeeId, LocalDate date) {
-    return salaryRepository.getBonusFor(employeeId, date);
+  private GBP sumSalaryItems(EmployeeId employeeId, LocalDate date, Predicate<SalaryItem> bySalaryType) {
+    return salaryRepository.getSalaryItemsFor(employeeId, date)
+        .stream()
+        .filter(bySalaryType)
+        .map(SalaryItem::getAmount)
+        .reduce(zero(), GBP::plus);
   }
 
-  public GBP getOvertimeFor(EmployeeId employeeId, LocalDate date) {
-    return salaryRepository.getOvertimeFor(employeeId, date);
-  }
-
-  public GBP getLoanFor(EmployeeId employeeId, LocalDate date) {
-    return salaryRepository.getLoanFor(employeeId, date);
+  public GBP getSalaryItem(EmployeeId employeeId, Class<? extends SalaryItem> salaryItemClass, LocalDate date) {
+    return salaryRepository.getSalaryItemFor(employeeId, salaryItemClass, date);
   }
 
   public GBP getNationalInsuranceFor(EmployeeId employeeId, LocalDate date) {
@@ -63,8 +67,10 @@ public class SalaryService {
 
   public GBP getNetPayable(EmployeeId employeeId, LocalDate date) {
     final GBP nationalInsurance = getNationalInsuranceFor(employeeId, date);
-    final GBP deductions = nationalInsurance.plus(getTax(employeeId, date));
-    return getGrossSalary(employeeId, date).minus(deductions);
+    final GBP tax = getTax(employeeId, date);
+    return getGrossSalary(employeeId, date)
+        .minus(nationalInsurance)
+        .minus(tax);
   }
 
   public String getNameFor(EmployeeId employeeId) {

@@ -1,5 +1,7 @@
 package SalarySlipKata.domain_service;
 
+import static SalarySlipKata.domain.GBP.zero;
+
 import SalarySlipKata.domain.GBP;
 
 public class TaxCalculatorService {
@@ -20,6 +22,6 @@ public class TaxCalculatorService {
       return monthlyTaxableSalary.multiplyBy(TWENTY_PERCENT);
     }
 
-    return new GBP(0.00);
+    return zero();
   }
 }

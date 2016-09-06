@@ -5,8 +5,11 @@ import static java.time.format.DateTimeFormatter.ofPattern;
 
 import java.time.LocalDate;
 
+import SalarySlipKata.domain.Bonus;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
+import SalarySlipKata.domain.Loan;
+import SalarySlipKata.domain.Overtime;
 import SalarySlipKata.domain_service.SalaryService;
 
 public class StandardSalarySlipPrinter {
@@ -51,10 +54,10 @@ public class StandardSalarySlipPrinter {
             rightPadWithSpaces(employeeId.toString(), 5),
             rightPadWithSpaces(employeeName, 10),
             leftPadWithSpaces(salaryService.getBasicSalaryFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getLoanFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getBonusFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getSalaryItem(employeeId, Loan.class, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getSalaryItem(employeeId, Bonus.class, date), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getNationalInsuranceFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getOvertimeFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getSalaryItem(employeeId, Overtime.class, date), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getTax(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getGrossSalary(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getNetPayable(employeeId, date), FIXED_LENGTH_FOR_AMOUNT)

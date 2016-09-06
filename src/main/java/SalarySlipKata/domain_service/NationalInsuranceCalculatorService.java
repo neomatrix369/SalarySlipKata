@@ -1,5 +1,7 @@
 package SalarySlipKata.domain_service;
 
+import static SalarySlipKata.domain.GBP.zero;
+
 import SalarySlipKata.domain.GBP;
 
 public class NationalInsuranceCalculatorService {
@@ -15,6 +17,6 @@ public class NationalInsuranceCalculatorService {
       return differenceFromThreshold.multiplyBy(TWELVE_PERCENT);
     }
 
-    return new GBP(0.0);
+    return zero();
   }
 }

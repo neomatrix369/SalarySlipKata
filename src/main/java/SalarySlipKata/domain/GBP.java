@@ -9,6 +9,10 @@ public class GBP {
     this.denomination = anotherDenomination;
   }
 
+  public static final GBP zero() {
+    return new GBP(0.0);
+  }
+
   public GBP(GBP amount) {
     this.denomination = amount.denomination;
   }
@@ -34,7 +38,7 @@ public class GBP {
   }
 
   public boolean isGreaterThanZero() {
-    return this.denomination > 0.00;
+    return this.denomination > 0.0;
   }
 
   public boolean isGreaterThanOrEqualTo(GBP anotherDenomination) {
