@@ -2,6 +2,9 @@ package SalarySlipKata.domain;
 
 import static java.lang.String.format;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 public class GBP {
   private final double denomination;
 
@@ -47,6 +50,26 @@ public class GBP {
 
   public boolean isLessThanOrEqualTo(GBP anotherDenomination)  {
     return this.denomination <= anotherDenomination.denomination;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+
+    if (o == null || getClass() != o.getClass()) return false;
+
+    GBP gbp = (GBP) o;
+
+    return new EqualsBuilder()
+        .append(denomination, gbp.denomination)
+        .isEquals();
+  }
+
+  @Override
+  public int hashCode() {
+    return new HashCodeBuilder(17, 37)
+        .append(denomination)
+        .toHashCode();
   }
 
   @Override
