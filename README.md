@@ -25,8 +25,7 @@ Salary slip kata
               public void printFor(EmployeeId employeeId, LocalDate date);
           }
       
-      ```
-    - Type Basic is a sub-type of class SalaryItem 
+      ``` 
     - The resulting output must be in the below format: 
       ```
              Date: 01 Sep 2016             Salary for period: Sep 2016
