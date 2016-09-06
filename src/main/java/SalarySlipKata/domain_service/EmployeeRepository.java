@@ -11,13 +11,15 @@ public class EmployeeRepository {
   private final Map<EmployeeId, Employee> employees = new HashMap<>();
 
   public String getNameFor(EmployeeId employeeId) {
-    final Employee employee = employees.get(employeeId);
-    return employee.getName();
+    return employees
+        .get(employeeId)
+        .getName();
   }
 
   public GBP getAnnualSalaryFor(EmployeeId employeeId) {
-    final Employee employee = employees.get(employeeId);
-    return employee.getAnnualSalary();
+    return employees
+        .get(employeeId)
+        .getAnnualSalary();
   }
 
   public void addEmployee(EmployeeId employeeId, String name, GBP annualSalary) {

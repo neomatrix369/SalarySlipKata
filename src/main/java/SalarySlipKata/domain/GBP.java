@@ -21,16 +21,12 @@ public class GBP {
     return new GBP(this.denomination / value);
   }
 
-  public GBP differenceFrom(double anotherDenomination) {
-    return new GBP(this.denomination - anotherDenomination);
+  public GBP differenceFrom(GBP anotherDenomination) {
+    return new GBP(this.denomination - anotherDenomination.denomination);
   }
 
   public GBP plus(GBP amount) {
     return new GBP(this.denomination + amount.denomination);
-  }
-
-  public GBP minus(double anotherDenomination) {
-    return new GBP(this.denomination - anotherDenomination);
   }
 
   public GBP minus(GBP amount) {
@@ -41,12 +37,12 @@ public class GBP {
     return this.denomination > 0.00;
   }
 
-  public boolean isGreaterThanOrEqualTo(double anotherDenomination) {
-    return this.denomination >= anotherDenomination;
+  public boolean isGreaterThanOrEqualTo(GBP anotherDenomination) {
+    return this.denomination >= anotherDenomination.denomination;
   }
 
-  public boolean isLessThanOrEqualTo(double anotherDenomination)  {
-    return this.denomination <= anotherDenomination;
+  public boolean isLessThanOrEqualTo(GBP anotherDenomination)  {
+    return this.denomination <= anotherDenomination.denomination;
   }
 
   @Override

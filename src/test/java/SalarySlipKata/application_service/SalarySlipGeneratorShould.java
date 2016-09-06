@@ -31,12 +31,14 @@ public class SalarySlipGeneratorShould {
   private SalaryService salaryService;
 
   private EmployeeRepository employeeRepository;
+  private SalaryRepository salaryRepository;
+
   private StandardSalarySlipPrinter standardSalarySlipPrinter;
 
   private NationalInsuranceCalculatorService nationalInsuranceCalculatorService;
   private TaxCalculatorService taxCalculatorService;
+
   private SalarySlipGenerator salarySlipGenerator;
-  private SalaryRepository salaryRepository;
 
   @Before
   public void initialise() {
