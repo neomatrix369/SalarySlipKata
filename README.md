@@ -28,12 +28,12 @@ Salary slip kata
       ``` 
     - The resulting output must be in the below format: 
       ```
-             Date: 01 Sep 2016             Salary for period: Sep 2016
+         Date: 01 Sep 2016             Salary for period: Sep 2016
     
-             Employee ID: 12345            Employee Name: John J Doe
+         Employee ID: 12345            Employee Name: John J Doe
     
-             SALARY                   
-             Basic            £2000.00
+         EARNINGS                                  
+         Basic            £2000.00
       ```
 
 
@@ -51,7 +51,7 @@ Salary slip kata
 
        Employee ID: 12345            Employee Name: John J Doe
 
-       SALARY                        DEDUCTION                   
+       EARNINGS                      DEDUCTIONS                   
        Basic            £2000.00     National Insurance     £159.40
     
   
@@ -70,7 +70,7 @@ Salary slip kata
        
        Employee ID: 12345            Employee Name: John J Doe
        
-       SALARY                        DEDUCTION                   
+       EARNINGS                      DEDUCTIONS                   
        Basic            £2000.00     National Insurance     £159.40
                                      Tax                    £216.67
 
@@ -94,7 +94,7 @@ Salary slip kata
 
        Employee ID: 12345            Employee Name: John J Doe
 
-       SALARY                        DEDUCTION                   
+       EARNINGS                      DEDUCTIONS                   
        Basic            £2000.00     National Insurance     £279.40
        Bonus            £1000.00     Tax                    £416.67
 
@@ -122,7 +122,7 @@ Salary slip kata
 
        Employee ID: 12345            Employee Name: John J Doe
 
-       SALARY                        DEDUCTION                   
+       EARNINGS                      DEDUCTIONS
        Basic            £2000.00     National Insurance     £339.40
        Bonus            £1000.00     Tax                    £516.67
        Overtime          £500.00
@@ -152,7 +152,7 @@ Salary slip kata
 
        Employee ID: 12345            Employee Name: John J Doe
 
-       SALARY                        DEDUCTION
+       EARNINGS                      DEDUCTIONS
        Basic            £2000.00     Loan                   £200.00
        Bonus            £1000.00     National Insurance     £315.40
        Overtime          £500.00     Tax                    £467.67
@@ -161,7 +161,7 @@ Salary slip kata
   
 ### Calculations: National Insurance contributions and Tax
          
-   Gross Salary       = Basic Salary + sum of all earnings/allowances - sum of all deductions
+   Gross Salary       = Basic Salary + sum of all earnings - sum of all deductions
 
    National Insurance = NI deductable income * applicable NI rates
    National Insurance earnings threshold for the UK:
