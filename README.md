@@ -21,9 +21,8 @@ Salary slip kata
       ```java
       
           public class SalarySlipGenerator {
-              public void addEarningFor(EmployeeId employeeId, new SalaryItem(GBP amount), LocalDate date);
-              public void addDeductionFor(EmployeeId employeeId, new SalaryItem(GBP amount), LocalDate date);
-              public void printFor(EmployeeId employeeId);
+              public void addSalaryItem(EmployeeId employeeId, new SalaryItem(GBP amount), LocalDate date);
+              public void printFor(EmployeeId employeeId, LocalDate date);
           }
       
       ```
