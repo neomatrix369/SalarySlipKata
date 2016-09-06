@@ -19,15 +19,15 @@ public class StandardSalarySlipPrinter {
   private static final String SALARY_PERIOD_FORMAT = "MMM yyyy";
 
   private static final String STANDARD_PAY_SLIP_FORMAT =
-      "Date: %s            Salary for period: %s\n" +
-      "                                                        \n" +
-      "Employee ID: %s           Employee Name: %s  \n" +
-      "                                                        \n" +
-      "SALARY                       DEDUCTION                     \n" +
-      "Basic           %s     Loan                  %s\n" +
-      "Bonus           %s     National Insurance    %s\n" +
-      "Overtime        %s     Tax                   %s\n" +
-      "                                                        \n" +
+      "Date: %s            Salary for period: %s%n" +
+      "                                                        %n" +
+      "Employee ID: %s           Employee Name: %s  %n" +
+      "                                                        %n" +
+      "EARNINGS                     DEDUCTIONS                 %n" +
+      "Basic           %s     Loan                  %s%n" +
+      "Bonus           %s     National Insurance    %s%n" +
+      "Overtime        %s     Tax                   %s%n" +
+      "                                                        %n" +
       "Gross salary    %s     Net payable           %s";
 
   private final Console console;

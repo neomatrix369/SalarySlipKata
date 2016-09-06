@@ -50,8 +50,8 @@ public class SalarySlipGeneratorShould {
 
     nationalInsuranceCalculatorService = new NationalInsuranceCalculatorService();
     taxCalculatorService = new TaxCalculatorService();
-    salaryService =
-        new SalaryService(employeeRepository, salaryRepository, nationalInsuranceCalculatorService, taxCalculatorService);
+    salaryService = new SalaryService(
+        employeeRepository, salaryRepository, nationalInsuranceCalculatorService, taxCalculatorService);
 
     standardSalarySlipPrinter = new StandardSalarySlipPrinter(console, clock, salaryService);
 
@@ -75,7 +75,7 @@ public class SalarySlipGeneratorShould {
         "                                                        \n" +
         "Employee ID: 12345           Employee Name: John J Doe  \n" +
         "                                                        \n" +
-        "SALARY                       DEDUCTION                     \n" +
+        "EARNINGS                     DEDUCTIONS                 \n" +
         "Basic           £2000.00     Loan                   £200.00\n" +
         "Bonus           £1000.00     National Insurance     £315.40\n" +
         "Overtime         £500.00     Tax                    £476.67\n" +
