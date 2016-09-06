@@ -16,12 +16,8 @@ public class SalarySlipGenerator {
     this.standardSalarySlipPrinter = standardSalarySlipPrinter;
   }
 
-  public void addEarning(EmployeeId employeeId, SalaryItem earning) {
-    salaryService.addEarningFor(employeeId, earning);
-  }
-
-  public void addDeductionFor(EmployeeId employeeId, SalaryItem deduction) {
-    salaryService.addDeductionFor(employeeId, deduction);
+  public void addSalaryItem(EmployeeId employeeId, SalaryItem salaryItem) {
+    salaryService.addSalaryItem(employeeId, salaryItem);
   }
 
   public void printFor(EmployeeId employeeId, LocalDate date) {

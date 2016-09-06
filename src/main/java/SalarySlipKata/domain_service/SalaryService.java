@@ -25,12 +25,8 @@ public class SalaryService {
     this.taxCalculatorService = taxCalculatorService;
   }
 
-  public void addEarningFor(EmployeeId employeeId, SalaryItem earning) {
-    salaryRepository.addEarningFor(employeeId, earning);
-  }
-
-  public void addDeductionFor(EmployeeId employeeId, SalaryItem deduction) {
-    salaryRepository.addDeductionFor(employeeId, deduction);
+  public void addSalaryItem(EmployeeId employeeId, SalaryItem salaryItem) {
+    salaryRepository.addSalaryItem(employeeId, salaryItem);
   }
 
   public GBP getBasicSalaryFor(EmployeeId employeeId) {

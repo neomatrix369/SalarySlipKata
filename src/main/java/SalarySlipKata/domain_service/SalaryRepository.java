@@ -23,15 +23,7 @@ public class SalaryRepository {
   static final SalaryItem NO_LOAN = new Loan(new GBP(0.0), now());
   static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
 
-  public void addEarningFor(EmployeeId employeeId, SalaryItem earning) {
-    addSalaryToListFor(employeeId, earning);
-  }
-
-  public void addDeductionFor(EmployeeId employeeId, SalaryItem deduction) {
-    addSalaryToListFor(employeeId, deduction);
-  }
-
-  private void addSalaryToListFor(EmployeeId employeeId, SalaryItem salaryItem) {
+  public void addSalaryItem(EmployeeId employeeId, SalaryItem salaryItem) {
     final List<SalaryItem> list = salaries.getOrDefault(employeeId, new ArrayList<>());
     list.add(salaryItem);
 

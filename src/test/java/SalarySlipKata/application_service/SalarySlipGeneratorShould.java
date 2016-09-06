@@ -64,9 +64,9 @@ public class SalarySlipGeneratorShould {
     when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
     salaryService.addEmployee(EMPLOYEE_ID_12345, "John J Doe", new GBP(24000));
 
-    salarySlipGenerator.addEarning(EMPLOYEE_ID_12345, new Bonus(new GBP(1000), clock.getCurrentDate()));
-    salarySlipGenerator.addEarning(EMPLOYEE_ID_12345, new Overtime(new GBP(500), clock.getCurrentDate()));
-    salarySlipGenerator.addDeductionFor(EMPLOYEE_ID_12345, new Loan(new GBP(200), clock.getCurrentDate()));
+    salarySlipGenerator.addSalaryItem(EMPLOYEE_ID_12345, new Bonus(new GBP(1000), clock.getCurrentDate()));
+    salarySlipGenerator.addSalaryItem(EMPLOYEE_ID_12345, new Overtime(new GBP(500), clock.getCurrentDate()));
+    salarySlipGenerator.addSalaryItem(EMPLOYEE_ID_12345, new Loan(new GBP(200), clock.getCurrentDate()));
 
     salarySlipGenerator.printFor(EMPLOYEE_ID_12345, clock.getCurrentDate());
 
