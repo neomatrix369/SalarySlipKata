@@ -22,16 +22,12 @@ public class SalaryRepository {
   static final SalaryItem NO_LOAN = new Loan(new GBP(0.0), now());
   static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
 
-  public void addBonusFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    addSalaryToListFor(employeeId, salaryItem);
+  public void addEarningFor(EmployeeId employeeId, SalaryItem earning) {
+    addSalaryToListFor(employeeId, earning);
   }
 
-  public void addOvertimeFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    addSalaryToListFor(employeeId, salaryItem);
-  }
-
-  public void addLoanFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    addSalaryToListFor(employeeId, salaryItem);
+  public void addDeductionFor(EmployeeId employeeId, SalaryItem deduction) {
+    addSalaryToListFor(employeeId, deduction);
   }
 
   private void addSalaryToListFor(EmployeeId employeeId, SalaryItem salaryItem) {

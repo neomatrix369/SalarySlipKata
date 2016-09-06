@@ -23,16 +23,17 @@ public class SalaryService {
     this.taxCalculatorService = taxCalculatorService;
   }
 
-  public void addBonusFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    salaryRepository.addBonusFor(employeeId, salaryItem);
+  public void addEarningFor(EmployeeId employeeId, SalaryItem earning) {
+    salaryRepository.addEarningFor(employeeId, earning);
   }
 
-  public void addOvertimeFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    salaryRepository.addOvertimeFor(employeeId, salaryItem);
+  public void addDeductionFor(EmployeeId employeeId, SalaryItem deduction) {
+    salaryRepository.addDeductionFor(employeeId, deduction);
   }
 
-  public void addLoanFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    salaryRepository.addLoanFor(employeeId, salaryItem);
+  public GBP getBasicSalaryFor(EmployeeId employeeId) {
+    final GBP annualSalary = employeeRepository.getAnnualSalaryFor(employeeId);
+    return annualSalary.dividedBy(TWELVE_MONTHS);
   }
 
   public GBP getGrossSalary(EmployeeId employeeId) {
@@ -40,11 +41,6 @@ public class SalaryService {
         .plus(getBonusFor(employeeId))
         .plus(getOvertimeFor(employeeId))
         .minus(getLoanFor(employeeId));
-  }
-
-  public GBP getBasicSalaryFor(EmployeeId employeeId) {
-    final GBP annualSalary = employeeRepository.getAnnualSalaryFor(employeeId);
-    return annualSalary.dividedBy(TWELVE_MONTHS);
   }
 
   public GBP getBonusFor(EmployeeId employeeId) {
