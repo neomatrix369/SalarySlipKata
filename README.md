@@ -155,7 +155,7 @@ Salary slip kata
 
        Gross Salary     £3300.00     Net payable           £2507.93
   
-- Calculations
+### Calculations: National Insurance contributions and Tax
          
      Gross Salary       = Basic Salary + sum of all earnings/allowances - sum of all deductions
 
@@ -184,9 +184,9 @@ Salary slip kata
 
      Net payable        = Gross Salary - Total Deductables
 
-- Examples of National Insurance contributions and Tax calculations:
-    - National Insurance contributions table:
-      ```
+### Examples: National Insurance contributions and Tax calculations
+   - National Insurance contributions table:
+    
           Annual Income (£)   First slab         Second slab         Third Slab         Total (£)
                               (below £8,060.00)  (between £8,060.00  (above £43,000.00)
                                                  and £43,000.00)
@@ -206,10 +206,9 @@ Salary slip kata
                                           0.00             4,192.80             140.00    4,332.80
                   60,000.00               0.00            34,940.00          17,000.00 
                                           0.00             4,192.80             340.00    4,532.80
-      ```
 
-    - Tax calculation table:
-      ```
+   - Tax calculation table:
+
          Annual Income (£)   First slab           Second slab           Third Slab           Fourth Slab          Total (£)
                              (below £11,000.00)   (between £11,000.00   (between £43,000.00  (above £150,000.00)
                                                   and £43,000.00)       and £150,000.00)
@@ -231,9 +230,6 @@ Salary slip kata
                                          0.00                6,400.00              6,800.00                 0.00  13,200.00
                100,000.00                0.00               32,000.00             57,000.00                 0.00  
                                          0.00                6,400.00             22,800.00                 0.00  29,200.00
-      
-      ```
-
 
 - Resources
     - [Sample Salary Slip](http://1.bp.blogspot.com/-lJXMuMQCGtE/Udm8dlTIeSI/AAAAAAAAA1Q/jLxBZndJTAA/s1600/Pay+Slip+Format.JPG)
