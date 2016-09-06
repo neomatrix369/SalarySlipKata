@@ -1,5 +1,6 @@
 package SalarySlipKata.domain_service;
 
+import static java.util.stream.Collectors.toList;
 import static SalarySlipKata.domain.SalaryItem.getDefaultSalaryItem;
 
 import java.time.LocalDate;
@@ -7,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
@@ -40,6 +40,6 @@ public class SalaryRepository {
         .get(employeeId)
         .stream()
         .filter(eachSalaryItem -> eachSalaryItem.forDate(date))
-        .collect(Collectors.toList());
+        .collect(toList());
   }
 }
