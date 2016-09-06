@@ -5,8 +5,10 @@ Salary slip kata
   A typical salary slips contains employee details like employee id, employee name and their salary details like their basic salary, gross salary, national insurance contributions, and taxes to be paid.
   
   In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the respective aspects of the salary slip and have an impact on the gross salary, national insurance contributions, and taxes to be paid.
+  
+  Salary slips are generated each month for every employee. 
 
-### Scenario 1 - add employee details and print a salary slip
+### Scenario 1: add employee details and print a salary slip
     
   Given I have added an employee
   When I print the salary slip
@@ -36,7 +38,7 @@ Salary slip kata
       ```
 
 
-### Scenario 2 - calculate the National Insurance contributions based on the basic salary
+### Scenario 2: calculate the National Insurance contributions based on the basic salary
 
   Given I have an employee id for an employee
   When I print the salary slip
@@ -54,7 +56,7 @@ Salary slip kata
        Basic            £2000.00     National Insurance     £159.40
     
   
-### Scenario 3 - calculate the Tax to be paid based on the basic salary
+### Scenario 3: calculate the Tax to be paid based on the basic salary
 
   Given I have an employee id for an employee
   When I print the salary slip
@@ -73,7 +75,7 @@ Salary slip kata
        Basic            £2000.00     National Insurance     £159.40
                                      Tax                    £216.67
 
-### Scenario 4 - calculate the gross salary, NI and Tax after adding a bonus to the basic salary
+### Scenario 4: calculate the gross salary, NI and Tax after adding a bonus to the basic salary
 
   Given I have an employee id for an employee
   And I have added a Bonus to the monthly salary
@@ -99,7 +101,7 @@ Salary slip kata
        Gross Salary     £3000.00
 
 
-### Scenario 5 - calculate the gross salary, NI and Tax after adding an overtime to the basic salary and bonus
+### Scenario 5: calculate the gross salary, NI and Tax after adding an overtime to the basic salary and bonus
 
   Given I have an employee id for an employee
   And I have added a Bonus to the monthly salary
@@ -126,7 +128,7 @@ Salary slip kata
 
        Gross Salary     £3500.00
 
-### Scenario 6 - calculate the gross salary, NI and Tax after deducting a loan payment 
+### Scenario 6: calculate the gross salary, NI and Tax after deducting a loan payment 
 
   Given I have an employee id for an employee
   And I have added a Bonus to the monthly salary
@@ -157,32 +159,32 @@ Salary slip kata
   
 ### Calculations: National Insurance contributions and Tax
          
-     Gross Salary       = Basic Salary + sum of all earnings/allowances - sum of all deductions
+   Gross Salary       = Basic Salary + sum of all earnings/allowances - sum of all deductions
 
-     National Insurance = NI deductable income * applicable NI rates
-     National Insurance earnings threshold for the UK:
-     ```
+   National Insurance = NI deductable income * applicable NI rates
+   National Insurance earnings threshold for the UK:
+   ```
          Band                  NI deducable income     Rate
          ---------------------------------------------------
          No contributions      Up to £8,060             0%
          Basic contributions   £8,061 to £43,000       12%
          Higher contributions  over £43,000             2%
-      ```
-
-     Taxable Income     = Gross Salary - Personal Allowance 
-     Tax                = Taxable Income * applicable tax rates
-     All tax deductions must follow the below brackets for the UK: 
-     ```
+   ```
+   
+   Taxable Income     = Gross Salary - Personal Allowance 
+   Tax                = Taxable Income * applicable tax rates
+   All tax deductions must follow the below brackets for the UK: 
+   ```
          Band                   Taxable income       Tax rate
          ----------------------------------------------------
          Personal Allowance     Up to £11,000            0%
          Basic rate             £11,001 to £43,000      20%
          Higher rate            £43,001 to £150,000     40%
          Additional rate        over £150,000           45%
-     ```
-     Total deductables  = National Insurance + Tax
+   ```
+   Total deductables  = National Insurance + Tax
 
-     Net payable        = Gross Salary - Total Deductables
+   Net payable        = Gross Salary - Total Deductables
 
 ### Examples: National Insurance contributions and Tax calculations
    - National Insurance contributions table:
