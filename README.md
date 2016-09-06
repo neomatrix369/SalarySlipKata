@@ -27,7 +27,7 @@ Salary slip kata
           }
       
       ```
-    - Types Basic, Bonus, Overtime and Loan are of sub-types of class SalaryItem 
+    - Type Basic is a sub-type of class SalaryItem 
     - The resulting output must be in the below format: 
       ```
              Date: 01 Sep 2016             Salary for period: Sep 2016
@@ -89,6 +89,7 @@ Salary slip kata
   Tax to be paid 
   
   Acceptance Criteria:
+  - Type Bonus is a sub-type of class SalaryItem
   - The resulting output must be in the below format:
   
        Date: 01 Sep 2016             Salary for period: Sep 2016
@@ -116,6 +117,7 @@ Salary slip kata
   and Tax to be paid 
 
   Acceptance Criteria:
+  - Type Overtime is a sub-type of class SalaryItem
   - The resulting output must be in the below format:
   
        Date: 01 Sep 2016             Salary for period: Sep 2016
@@ -145,6 +147,7 @@ Salary slip kata
   National Insurance contribution, and Tax to be paid 
 
   Acceptance Criteria:
+  - Type Loan is a sub-type of class SalaryItem
   - The resulting output must be in the below format:
   
        Date: 01 Sep 2016             Salary for period: Sep 2016
