@@ -45,14 +45,14 @@ Salary slip kata
   
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
     
-           Employee ID: 12345            Employee Name: John J Doe
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £159.40
     
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £159.40
-    ```
   
 ### Scenario 3 - calculate the Tax to be paid based on the basic salary
 
@@ -63,16 +63,15 @@ Salary slip kata
   Basic Salary, National Insurance contribution and Tax to be paid 
   
   Acceptance Criteria:
-  - The resulting output must be in the below format:    
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-           
-           Employee ID: 12345            Employee Name: John J Doe
-           
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £159.40
-                                         Tax                    £216.67
-    ```
+  - The resulting output must be in the below format:
+  
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+       
+       Employee ID: 12345            Employee Name: John J Doe
+       
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £159.40
+                                     Tax                    £216.67
 
 ### Scenario 4 - calculate the gross salary, NI and Tax after adding a bonus to the basic salary
 
@@ -88,17 +87,17 @@ Salary slip kata
   
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-    
-           Employee ID: 12345            Employee Name: John J Doe
-    
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £279.40
-           Bonus            £1000.00     Tax                    £416.67
-    
-           Gross Salary     £3000.00
-    ```
+  
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £279.40
+       Bonus            £1000.00     Tax                    £416.67
+
+       Gross Salary     £3000.00
+
 
 ### Scenario 5 - calculate the gross salary, NI and Tax after adding an overtime to the basic salary and bonus
 
@@ -115,18 +114,17 @@ Salary slip kata
 
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-    
-           Employee ID: 12345            Employee Name: John J Doe
-    
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £339.40
-           Bonus            £1000.00     Tax                    £516.67
-           Overtime          £500.00
-    
-           Gross Salary     £3500.00
-    ```
+  
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £339.40
+       Bonus            £1000.00     Tax                    £516.67
+       Overtime          £500.00
+
+       Gross Salary     £3500.00
 
 ### Scenario 6 - calculate the gross salary, NI and Tax after deducting a loan payment 
 
@@ -145,18 +143,17 @@ Salary slip kata
 
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-    
-           Employee ID: 12345            Employee Name: John J Doe
-    
-           SALARY                        DEDUCTION
-           Basic            £2000.00     Loan                   £200.00
-           Bonus            £1000.00     National Insurance     £315.40
-           Overtime          £500.00     Tax                    £467.67
-    
-           Gross Salary     £3300.00     Net payable           £2507.93
-    ```
+  
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION
+       Basic            £2000.00     Loan                   £200.00
+       Bonus            £1000.00     National Insurance     £315.40
+       Overtime          £500.00     Tax                    £467.67
+
+       Gross Salary     £3300.00     Net payable           £2507.93
   
 - Calculations
          
