@@ -2,11 +2,9 @@ Salary slip kata
 ================
 - Problem description: Salary slip generator application for UK companies.
  
-  A typical salary slips contains employee details like employee id, employee name and their salary details like 
-  their basic salary, gross salary, national insurance contributions, and taxes to be paid.
+  A typical salary slips contains employee details like employee id, employee name and their salary details like their basic salary, gross salary, national insurance contributions, and taxes to be paid.
   
-  In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the 
-  respective aspects of the salary slip.
+  In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the respective aspects of the salary slip and have an impact on the gross salary, national insurance contributions, and taxes to be paid.
 
 ### Scenario 1 - add employee details and print a salary slip
     
@@ -47,14 +45,14 @@ Salary slip kata
   
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
     
-           Employee ID: 12345            Employee Name: John J Doe
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £159.40
     
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £159.40
-    ```
   
 ### Scenario 3 - calculate the Tax to be paid based on the basic salary
 
@@ -65,16 +63,15 @@ Salary slip kata
   Basic Salary, National Insurance contribution and Tax to be paid 
   
   Acceptance Criteria:
-  - The resulting output must be in the below format:    
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-           
-           Employee ID: 12345            Employee Name: John J Doe
-           
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £159.40
-                                         Tax                    £216.67
-    ```
+  - The resulting output must be in the below format:
+  
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+       
+       Employee ID: 12345            Employee Name: John J Doe
+       
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £159.40
+                                     Tax                    £216.67
 
 ### Scenario 4 - calculate the gross salary, NI and Tax after adding a bonus to the basic salary
 
@@ -90,17 +87,17 @@ Salary slip kata
   
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-    
-           Employee ID: 12345            Employee Name: John J Doe
-    
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £279.40
-           Bonus            £1000.00     Tax                    £416.67
-    
-           Gross Salary     £3000.00
-    ```
+  
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £279.40
+       Bonus            £1000.00     Tax                    £416.67
+
+       Gross Salary     £3000.00
+
 
 ### Scenario 5 - calculate the gross salary, NI and Tax after adding an overtime to the basic salary and bonus
 
@@ -117,18 +114,17 @@ Salary slip kata
 
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-    
-           Employee ID: 12345            Employee Name: John J Doe
-    
-           SALARY                        DEDUCTION                   
-           Basic            £2000.00     National Insurance     £339.40
-           Bonus            £1000.00     Tax                    £516.67
-           Overtime          £500.00
-    
-           Gross Salary     £3500.00
-    ```
+  
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION                   
+       Basic            £2000.00     National Insurance     £339.40
+       Bonus            £1000.00     Tax                    £516.67
+       Overtime          £500.00
+
+       Gross Salary     £3500.00
 
 ### Scenario 6 - calculate the gross salary, NI and Tax after deducting a loan payment 
 
@@ -147,20 +143,19 @@ Salary slip kata
 
   Acceptance Criteria:
   - The resulting output must be in the below format:
-    ```
-           Date: 01 Sep 2016             Salary for period: Sep 2016
-    
-           Employee ID: 12345            Employee Name: John J Doe
-    
-           SALARY                        DEDUCTION
-           Basic            £2000.00     Loan                   £200.00
-           Bonus            £1000.00     National Insurance     £315.40
-           Overtime          £500.00     Tax                    £467.67
-    
-           Gross Salary     £3300.00     Net payable           £2507.93
-    ```
   
-- Calculations
+       Date: 01 Sep 2016             Salary for period: Sep 2016
+
+       Employee ID: 12345            Employee Name: John J Doe
+
+       SALARY                        DEDUCTION
+       Basic            £2000.00     Loan                   £200.00
+       Bonus            £1000.00     National Insurance     £315.40
+       Overtime          £500.00     Tax                    £467.67
+
+       Gross Salary     £3300.00     Net payable           £2507.93
+  
+### Calculations: National Insurance contributions and Tax
          
      Gross Salary       = Basic Salary + sum of all earnings/allowances - sum of all deductions
 
@@ -189,9 +184,9 @@ Salary slip kata
 
      Net payable        = Gross Salary - Total Deductables
 
-- Examples of National Insurance contributions and Tax calculations:
-    - National Insurance contributions table:
-      ```
+### Examples: National Insurance contributions and Tax calculations
+   - National Insurance contributions table:
+    
           Annual Income (£)   First slab         Second slab         Third Slab         Total (£)
                               (below £8,060.00)  (between £8,060.00  (above £43,000.00)
                                                  and £43,000.00)
@@ -211,10 +206,9 @@ Salary slip kata
                                           0.00             4,192.80             140.00    4,332.80
                   60,000.00               0.00            34,940.00          17,000.00 
                                           0.00             4,192.80             340.00    4,532.80
-      ```
 
-    - Tax calculation table:
-      ```
+   - Tax calculation table:
+
          Annual Income (£)   First slab           Second slab           Third Slab           Fourth Slab          Total (£)
                              (below £11,000.00)   (between £11,000.00   (between £43,000.00  (above £150,000.00)
                                                   and £43,000.00)       and £150,000.00)
@@ -236,9 +230,6 @@ Salary slip kata
                                          0.00                6,400.00              6,800.00                 0.00  13,200.00
                100,000.00                0.00               32,000.00             57,000.00                 0.00  
                                          0.00                6,400.00             22,800.00                 0.00  29,200.00
-      
-      ```
-
 
 - Resources
     - [Sample Salary Slip](http://1.bp.blogspot.com/-lJXMuMQCGtE/Udm8dlTIeSI/AAAAAAAAA1Q/jLxBZndJTAA/s1600/Pay+Slip+Format.JPG)
