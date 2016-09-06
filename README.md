@@ -2,11 +2,9 @@ Salary slip kata
 ================
 - Problem description: Salary slip generator application for UK companies.
  
-  A typical salary slips contains employee details like employee id, employee name and their salary details like 
-  their basic salary, gross salary, national insurance contributions, and taxes to be paid.
+  A typical salary slips contains employee details like employee id, employee name and their salary details like their basic salary, gross salary, national insurance contributions, and taxes to be paid.
   
-  In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the 
-  respective aspects of the salary slip.
+  In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the respective aspects of the salary slip and have an impact on the gross salary, national insurance contributions, and taxes to be paid.
 
 ### Scenario 1 - add employee details and print a salary slip
     
