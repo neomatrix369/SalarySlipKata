@@ -6,6 +6,8 @@ import SalarySlipKata.domain.SalaryItem;
 
 public class SalaryService {
 
+  private static final int TWELVE_MONTHS = 12;
+
   private final EmployeeRepository employeeRepository;
   private final SalaryRepository salaryRepository;
   private final NationalInsuranceCalculatorService nationalInsuranceCalculatorService;
@@ -19,10 +21,6 @@ public class SalaryService {
     this.salaryRepository = salaryRepository;
     this.nationalInsuranceCalculatorService = nationalInsuranceCalculatorService;
     this.taxCalculatorService = taxCalculatorService;
-  }
-
-  public void addBasicSalaryFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    salaryRepository.addBasicSalaryFor(employeeId, salaryItem);
   }
 
   public void addBonusFor(EmployeeId employeeId, SalaryItem salaryItem) {
@@ -39,20 +37,21 @@ public class SalaryService {
 
   public GBP getGrossSalary(EmployeeId employeeId) {
     return getBasicSalaryFor(employeeId)
-        .plus(getBonus(employeeId))
-        .plus(getOvertime(employeeId))
+        .plus(getBonusFor(employeeId))
+        .plus(getOvertimeFor(employeeId))
         .minus(getLoanFor(employeeId));
   }
 
   public GBP getBasicSalaryFor(EmployeeId employeeId) {
-    return salaryRepository.getBasicSalaryFor(employeeId);
+    final GBP annualSalary = employeeRepository.getAnnualSalaryFor(employeeId);
+    return annualSalary.dividedBy(TWELVE_MONTHS);
   }
 
-  public GBP getBonus(EmployeeId employeeId) {
+  public GBP getBonusFor(EmployeeId employeeId) {
     return salaryRepository.getBonusFor(employeeId);
   }
 
-  public GBP getOvertime(EmployeeId employeeId) {
+  public GBP getOvertimeFor(EmployeeId employeeId) {
     return salaryRepository.getOvertimeFor(employeeId);
   }
 

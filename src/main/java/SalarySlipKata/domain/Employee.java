@@ -14,4 +14,8 @@ public class Employee {
   public String getName() {
     return name;
   }
+
+  public GBP getAnnualSalary() {
+    return new GBP(annualSalary);
+  }
 }

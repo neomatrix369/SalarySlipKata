@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 
-import SalarySlipKata.domain.Basic;
 import SalarySlipKata.domain.Bonus;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
@@ -21,12 +20,7 @@ public class SalaryRepository {
 
   static final SalaryItem NO_OVERTIME = new Overtime(new GBP(0.0), now());
   static final SalaryItem NO_LOAN = new Loan(new GBP(0.0), now());
-  static final SalaryItem NO_BASIC_SALARY = new Basic(new GBP(0.0), now());
   static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
-
-  public void addBasicSalaryFor(EmployeeId employeeId, SalaryItem salaryItem) {
-    addSalaryToListFor(employeeId, salaryItem);
-  }
 
   public void addBonusFor(EmployeeId employeeId, SalaryItem salaryItem) {
     addSalaryToListFor(employeeId, salaryItem);
@@ -45,10 +39,6 @@ public class SalaryRepository {
     list.add(salaryItem);
 
     salaries.put(employeeId, list);
-  }
-
-  public  GBP getBasicSalaryFor(EmployeeId employeeId) {
-    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Basic, NO_BASIC_SALARY);
   }
 
   public GBP getBonusFor(EmployeeId employeeId) {

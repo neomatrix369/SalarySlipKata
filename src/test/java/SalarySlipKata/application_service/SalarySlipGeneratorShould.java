@@ -8,7 +8,6 @@ import static java.time.LocalDate.parse;
 import org.junit.Before;
 import org.junit.Test;
 
-import SalarySlipKata.domain.Basic;
 import SalarySlipKata.domain.Bonus;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
@@ -63,7 +62,6 @@ public class SalarySlipGeneratorShould {
     when(clock.getCurrentDate()).thenReturn(parse("2016-09-01"));
     salaryService.addEmployee(EMPLOYEE_ID_12345, "John J Doe", new GBP(24000));
 
-    salarySlipGenerator.addEarning(EMPLOYEE_ID_12345, new Basic(new GBP(2000), clock.getCurrentDate()));
     salarySlipGenerator.addEarning(EMPLOYEE_ID_12345, new Bonus(new GBP(1000), clock.getCurrentDate()));
     salarySlipGenerator.addEarning(EMPLOYEE_ID_12345, new Overtime(new GBP(500), clock.getCurrentDate()));
     salarySlipGenerator.addDeductionFor(EMPLOYEE_ID_12345, new Loan(new GBP(200), clock.getCurrentDate()));

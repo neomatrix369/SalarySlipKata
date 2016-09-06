@@ -1,6 +1,5 @@
 package SalarySlipKata.application_service;
 
-import SalarySlipKata.domain.Basic;
 import SalarySlipKata.domain.Bonus;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.Overtime;
@@ -18,9 +17,7 @@ public class SalarySlipGenerator {
   }
 
   public void addEarning(EmployeeId employeeId, SalaryItem earning) {
-    if (earning instanceof Basic) {
-      salaryService.addBasicSalaryFor(employeeId, earning);
-    } else if (earning instanceof Bonus) {
+    if (earning instanceof Bonus) {
       salaryService.addBonusFor(employeeId, earning);
     } else if (earning instanceof Overtime) {
       salaryService.addOvertimeFor(employeeId, earning);

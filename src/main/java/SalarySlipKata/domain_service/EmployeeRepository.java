@@ -15,6 +15,11 @@ public class EmployeeRepository {
     return employee.getName();
   }
 
+  public GBP getAnnualSalaryFor(EmployeeId employeeId) {
+    final Employee employee = employees.get(employeeId);
+    return employee.getAnnualSalary();
+  }
+
   public void addEmployee(EmployeeId employeeId, String name, GBP annualSalary) {
     employees.put(employeeId, new Employee(employeeId, name, annualSalary));
   }

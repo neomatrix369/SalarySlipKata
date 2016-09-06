@@ -52,9 +52,9 @@ public class StandardSalarySlipPrinter {
             rightPadWithSpaces(employeeName, 10),
             leftPadWithSpaces(salaryService.getBasicSalaryFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getLoanFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getBonus(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getBonusFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getNationalInsuranceFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getOvertime(employeeId), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getOvertimeFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getTax(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getGrossSalary(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getNetPayable(employeeId), FIXED_LENGTH_FOR_AMOUNT)
