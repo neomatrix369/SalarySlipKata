@@ -1,13 +1,13 @@
 package SalarySlipKata.infrastructure;
 
-import static java.lang.String.*;
+import static java.lang.String.format;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 import java.time.LocalDate;
 
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
-import SalarySlipKata.donain_service.SalaryService;
+import SalarySlipKata.domain_service.SalaryService;
 
 public class StandardSalarySlipPrinter {
   private static final int FIXED_LENGTH_FOR_AMOUNT = 8;
@@ -16,16 +16,16 @@ public class StandardSalarySlipPrinter {
   private static final String SALARY_PERIOD_FORMAT = "MMM yyyy";
 
   private static final String STANDARD_PAY_SLIP_FORMAT =
-      "Date: %s            Salary for period: %s%n" +
-      "                                                        %n" +
-      "Employee ID: %s                                      %n" +
-      "                                                        %n" +
-      "SALARY                    DEDUCTION                     %n" +
-      "Basic           %s  Loan                  %s%n" +
-      "Bonus           %s  National Insurance    %s%n" +
-      "Overtime        %s  Tax                   %s%n" +
-      "                                                        %n" +
-      "Gross salary    %s  Net payable           %s";
+      "Date: %s            Salary for period: %s\n" +
+      "                                                        \n" +
+      "Employee ID: %s           Employee Name: %s  \n" +
+      "                                                        \n" +
+      "SALARY                       DEDUCTION                     \n" +
+      "Basic           %s     Loan                  %s\n" +
+      "Bonus           %s     National Insurance    %s\n" +
+      "Overtime        %s     Tax                   %s\n" +
+      "                                                        \n" +
+      "Gross salary    %s     Net payable           %s";
 
   private final Console console;
   private final Clock clock;
@@ -43,11 +43,13 @@ public class StandardSalarySlipPrinter {
     String salaryPeriod =
         getFormattedDate(SALARY_PERIOD_FORMAT, clock.getCurrentDate());
 
+    String employeeName = salaryService.getNameFor(employeeId);
     console.print(
         format(STANDARD_PAY_SLIP_FORMAT,
             currentDate,
             salaryPeriod,
-            employeeId,
+            rightPadWithSpaces(employeeId.toString(), 5),
+            rightPadWithSpaces(employeeName, 10),
             leftPadWithSpaces(salaryService.getBasicSalaryFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getLoanFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
             leftPadWithSpaces(salaryService.getBonus(employeeId), FIXED_LENGTH_FOR_AMOUNT),
@@ -60,8 +62,12 @@ public class StandardSalarySlipPrinter {
     );
   }
 
+  private String rightPadWithSpaces(String value, int totalLength) {
+    return format("%0$-" + totalLength + "s", value);
+  }
+
   private String leftPadWithSpaces(GBP amount, int totalLength) {
-    return format("%1$"+totalLength+ "s", amount.toString());
+    return format("%1$" + totalLength + "s", amount.toString());
   }
 
   private String getFormattedDate(String pattern, LocalDate date) {

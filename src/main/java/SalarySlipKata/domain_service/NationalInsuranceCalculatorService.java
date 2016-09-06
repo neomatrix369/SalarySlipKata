@@ -1,4 +1,4 @@
-package SalarySlipKata.donain_service;
+package SalarySlipKata.domain_service;
 
 import SalarySlipKata.domain.GBP;
 

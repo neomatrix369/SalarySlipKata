@@ -1,8 +1,7 @@
-package SalarySlipKata.donain_service;
+package SalarySlipKata.domain_service;
 
 import static java.time.LocalDate.now;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,37 +9,35 @@ import java.util.Map;
 import java.util.function.Predicate;
 
 import SalarySlipKata.domain.Basic;
+import SalarySlipKata.domain.Bonus;
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.GBP;
 import SalarySlipKata.domain.Loan;
 import SalarySlipKata.domain.Overtime;
 import SalarySlipKata.domain.SalaryItem;
-import SalarySlipKata.domain.Bonus;
 
-public class EmployeeSalaryRepository {
-  private static final SalaryItem NO_BASIC_SALARY = new Basic(new GBP(0.0), now());
-  private static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
-  private static final SalaryItem NO_OVERTIME = new Overtime(new GBP(0.0), now());
-  private static final SalaryItem NO_LOAN = new Loan(new GBP(0.0), now());
-
+public class SalaryRepository {
   private final Map<EmployeeId, List<SalaryItem>> salaries = new HashMap<>();
 
-  public EmployeeSalaryRepository() {}
+  static final SalaryItem NO_OVERTIME = new Overtime(new GBP(0.0), now());
+  static final SalaryItem NO_LOAN = new Loan(new GBP(0.0), now());
+  static final SalaryItem NO_BASIC_SALARY = new Basic(new GBP(0.0), now());
+  static final SalaryItem NO_BONUS = new Bonus(new GBP(0.0), now());
 
-  public void addBasicSalaryFor(EmployeeId employeeId, GBP amount, LocalDate date) {
-    addSalaryToListFor(employeeId, new Basic(amount, date));
+  public void addBasicSalaryFor(EmployeeId employeeId, SalaryItem salaryItem) {
+    addSalaryToListFor(employeeId, salaryItem);
   }
 
-  public void addBonusFor(EmployeeId employeeId, GBP amount, LocalDate date) {
-    addSalaryToListFor(employeeId, new Bonus(amount, date));
+  public void addBonusFor(EmployeeId employeeId, SalaryItem salaryItem) {
+    addSalaryToListFor(employeeId, salaryItem);
   }
 
-  public void addOvertimeFor(EmployeeId employeeId, GBP amount, LocalDate date) {
-    addSalaryToListFor(employeeId, new Overtime(amount, date));
+  public void addOvertimeFor(EmployeeId employeeId, SalaryItem salaryItem) {
+    addSalaryToListFor(employeeId, salaryItem);
   }
 
-  public void addLoanFor(EmployeeId employeeId, GBP amount, LocalDate date) {
-    addSalaryToListFor(employeeId, new Loan(amount, date));
+  public void addLoanFor(EmployeeId employeeId, SalaryItem salaryItem) {
+    addSalaryToListFor(employeeId, salaryItem);
   }
 
   private void addSalaryToListFor(EmployeeId employeeId, SalaryItem salaryItem) {
@@ -50,7 +47,7 @@ public class EmployeeSalaryRepository {
     salaries.put(employeeId, list);
   }
 
-  public GBP getBasicSalaryFor(EmployeeId employeeId) {
+  public  GBP getBasicSalaryFor(EmployeeId employeeId) {
     return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Basic, NO_BASIC_SALARY);
   }
 
@@ -68,13 +65,13 @@ public class EmployeeSalaryRepository {
 
   private GBP getFromSalaryListFor(
       EmployeeId employeeId,
-      Predicate<SalaryItem> predicate,
+      Predicate<SalaryItem> condition,
       SalaryItem defaultSalaryItem) {
 
     return salaries
         .get(employeeId)
         .stream()
-        .filter(predicate)
+        .filter(condition)
         .findFirst()
         .orElse(defaultSalaryItem)
         .getAmount();
