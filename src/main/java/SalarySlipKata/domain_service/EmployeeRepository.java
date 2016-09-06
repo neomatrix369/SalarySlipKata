@@ -16,6 +16,6 @@ public class EmployeeRepository {
   }
 
   public void addEmployee(EmployeeId employeeId, String name, GBP annualSalary) {
-    employees.put(employeeId, new Employee(name, annualSalary));
+    employees.put(employeeId, new Employee(employeeId, name, annualSalary));
   }
 }
