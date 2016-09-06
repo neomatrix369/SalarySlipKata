@@ -68,7 +68,7 @@ public class SalarySlipGeneratorShould {
     salarySlipGenerator.addEarning(EMPLOYEE_ID_12345, new Overtime(new GBP(500), clock.getCurrentDate()));
     salarySlipGenerator.addDeductionFor(EMPLOYEE_ID_12345, new Loan(new GBP(200), clock.getCurrentDate()));
 
-    salarySlipGenerator.printFor(EMPLOYEE_ID_12345);
+    salarySlipGenerator.printFor(EMPLOYEE_ID_12345, clock.getCurrentDate());
 
     verify(console).print(
         "Date: 01 Sep 2016            Salary for period: Sep 2016\n" +

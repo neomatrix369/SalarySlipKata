@@ -37,11 +37,11 @@ public class StandardSalarySlipPrinter {
     this.salaryService = salaryService;
   }
 
-  public void printSalaryFor(EmployeeId employeeId) {
+  public void printSalaryFor(EmployeeId employeeId, LocalDate date) {
     String currentDate =
         getFormattedDate(CURRENT_DATE_FORMAT, clock.getCurrentDate());
     String salaryPeriod =
-        getFormattedDate(SALARY_PERIOD_FORMAT, clock.getCurrentDate());
+        getFormattedDate(SALARY_PERIOD_FORMAT, date);
 
     String employeeName = salaryService.getNameFor(employeeId);
     console.print(
@@ -51,13 +51,13 @@ public class StandardSalarySlipPrinter {
             rightPadWithSpaces(employeeId.toString(), 5),
             rightPadWithSpaces(employeeName, 10),
             leftPadWithSpaces(salaryService.getBasicSalaryFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getLoanFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getBonusFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getNationalInsuranceFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getOvertimeFor(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getTax(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getGrossSalary(employeeId), FIXED_LENGTH_FOR_AMOUNT),
-            leftPadWithSpaces(salaryService.getNetPayable(employeeId), FIXED_LENGTH_FOR_AMOUNT)
+            leftPadWithSpaces(salaryService.getLoanFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getBonusFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getNationalInsuranceFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getOvertimeFor(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getTax(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getGrossSalary(employeeId, date), FIXED_LENGTH_FOR_AMOUNT),
+            leftPadWithSpaces(salaryService.getNetPayable(employeeId, date), FIXED_LENGTH_FOR_AMOUNT)
         )
     );
   }

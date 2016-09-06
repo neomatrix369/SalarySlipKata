@@ -2,6 +2,7 @@ package SalarySlipKata.domain_service;
 
 import static java.time.LocalDate.now;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,27 +38,28 @@ public class SalaryRepository {
     salaries.put(employeeId, list);
   }
 
-  public GBP getBonusFor(EmployeeId employeeId) {
-    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Bonus, NO_BONUS);
+  public GBP getBonusFor(EmployeeId employeeId, LocalDate date) {
+    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Bonus, eachSalaryItem -> eachSalaryItem.forDate(date), NO_BONUS);
   }
 
-  public GBP getOvertimeFor(EmployeeId employeeId) {
-    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Overtime, NO_OVERTIME);
+  public GBP getOvertimeFor(EmployeeId employeeId, LocalDate date) {
+    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Overtime, eachSalaryItem -> eachSalaryItem.forDate(date), NO_OVERTIME);
   }
 
-  public GBP getLoanFor(EmployeeId employeeId) {
-    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Loan, NO_LOAN);
+  public GBP getLoanFor(EmployeeId employeeId, LocalDate date) {
+    return getFromSalaryListFor(employeeId, eachSalaryItem -> eachSalaryItem instanceof Loan, eachSalaryItem -> eachSalaryItem.forDate(date), NO_LOAN);
   }
 
   private GBP getFromSalaryListFor(
       EmployeeId employeeId,
-      Predicate<SalaryItem> condition,
-      SalaryItem defaultSalaryItem) {
+      Predicate<SalaryItem> bySalaryItemType,
+      Predicate<SalaryItem> byDate, SalaryItem defaultSalaryItem) {
 
     return salaries
         .get(employeeId)
         .stream()
-        .filter(condition)
+        .filter(bySalaryItemType)
+        .filter(byDate)
         .findFirst()
         .orElse(defaultSalaryItem)
         .getAmount();

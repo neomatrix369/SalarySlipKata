@@ -1,5 +1,7 @@
 package SalarySlipKata.application_service;
 
+import java.time.LocalDate;
+
 import SalarySlipKata.domain.EmployeeId;
 import SalarySlipKata.domain.SalaryItem;
 import SalarySlipKata.domain_service.SalaryService;
@@ -22,7 +24,7 @@ public class SalarySlipGenerator {
     salaryService.addDeductionFor(employeeId, deduction);
   }
 
-  public void printFor(EmployeeId employeeId) {
-    standardSalarySlipPrinter.printSalaryFor(employeeId);
+  public void printFor(EmployeeId employeeId, LocalDate date) {
+    standardSalarySlipPrinter.printSalaryFor(employeeId, date);
   }
 }
