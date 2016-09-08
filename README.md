@@ -10,9 +10,9 @@ Salary slip kata
 
 ### Scenario 1: add employee details and print a salary slip
     
-  Given I have added an employee
-  When I print the salary slip
-  Then it should display the Date, Salary period, Employee ID, Employee Name and Basic Salary 
+  <p>Given I have added an employee</p>
+  <p>When I print the salary slip</p>
+  <p>Then it should display the Date, Salary period, Employee ID, Employee Name and Basic Salary</p> 
 
 - Acceptance criteria:
     - Should accept EmployeeId, Employee Name and Basic Salary
