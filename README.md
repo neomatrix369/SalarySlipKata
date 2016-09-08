@@ -20,9 +20,9 @@ Salary slip kata
     - The entry point should be the following interface, which you can not change:    
       ```java
       
-          public class SalarySlipGenerator {
-              public void addSalaryItem(EmployeeId employeeId, SalaryItem salaryItem, String salaryPeriod);
-              public void printFor(EmployeeId employeeId, String salaryPeriod);
+          public class SalarySlipApplication {
+            public void addSalaryItem(EmployeeId employeeId, SalaryItem salaryItem, String salaryPeriod);
+            public void printFor(EmployeeId employeeId, String salaryPeriod);
           }
       
       ``` 
