@@ -15,8 +15,8 @@ Salary slip kata
 ### Scenario 1: print a salary slip with employee details for an employee 
     
   <p>Given I have an employee</p>
-  <p>When I generate a salary slip for the employee</p>
-  <p>Then it should contain the Employee ID, Employee Name, Gross Salary, Taxable income, Tax-free allowance, National Insurance, Tax payable and Net payable</p>
+  <p>When I generate a monthly salary slip for the employee</p>
+  <p>Then it should contain the Employee ID, Employee Name, Gross Salary, Taxable income, Tax-free allowance, National Insurance, Tax payable and Net payable for the month</p>
 
 - Acceptance criteria:
     - Should pass Employee Id, Employee Name and Annual Salary
@@ -99,7 +99,7 @@ Salary slip kata
                      755.00   |      83.33  |      83.33 |        10.00  |       0.00  |         0.00  |       10.00
                               |             |            |               |             |               |
                   40,000.00   |  31,940.00  |  31,940.00 |     3,832.80  |       0.00  |         0.00  |    3,832.80
-                    3333.33   |   2,661.67  |   2,661.67 |       319.40  |       0.00  |         0.00  |      319.40
+                   3,333.33   |   2,661.67  |   2,661.67 |       319.40  |       0.00  |         0.00  |      319.40
                               |             |            |               |             |               |
                   43,000.00   |  34,940.00  |  34,940.00 |     4,192.80  |       0.00  |         0.00  |    4,192.80
                    3,583.33   |   2,911.67  |   2,911.67 |       349.40  |       0.00  |         0.00  |      349.40
