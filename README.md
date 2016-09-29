@@ -1,6 +1,6 @@
 Salary slip kata
 ================
-- Problem description: Salary slip generator application for UK companies.
+- Problem description: Salary slip generator for UK companies.
  
   A typical salary slips contains employee details like employee id, employee name and their salary details like their gross salary, taxable income, tax-free allowance, national insurance contributions, taxes payable and net payable.
   
@@ -24,7 +24,7 @@ Salary slip kata
     - The entry point should be the following interface, which you can not change:
       ```java
       
-          public class SalarySlipApplication {
+          public class SalarySlipGenerator {
             public void generateFor(Employee employee);
           }
       
@@ -151,11 +151,17 @@ Salary slip kata
                100,000.00   |  89,000.00  |  32,000.00 |  6,400.00  |  57,000.00 | 22,800.00  |      0.00 |      0.00  |   29,200.00
                  8,333.33   |   7,416.67  |   2,666.67 |    533.33  |   4,750.00 |  1,900.00  |      0.00 |      0.00  |    2,433.33
                             |             |            |            |            |            |           |            |
+               105,500.00*  |  97,250.00* |  32,000.00 |  6,400.00  |  65,250.00 | 26,100.00* |      0.00 |      0.00  |   32,500.00*
+                 8,791.67*  |   8,104.17* |   2,666.67 |    533.33  |   5,437.50 |  2,175.00* |      0.00 |      0.00  |    2,708.33*
+                            |             |            |            |            |            |           |            |
                111,000.00*  | 105,500.00* |  32,000.00 |  6,400.00  |  73,500.00 | 29,400.00* |      0.00 |      0.00  |   35,800.00*
                  9,250.00*  |   8,791.67* |   2,666.67 |    533.33  |   6,125.00 |  2,450.00* |      0.00 |      0.00  |    2,983.33*
                             |             |            |            |            |            |           |            |
                122,000.00*  | 122,000.00* |  32,000.00 |  6,400.00  |  90,000.00 | 36,000.00* |      0.00 |      0.00  |   42,400.00*
                 10,166.67*  |  10,166.67* |   2,666.67 |    533.33  |   7,500.00 |  3,000.00* |      0.00 |      0.00  |    3,533.33*
+                            |             |            |            |            |            |           |            |
+               130,000.00*  | 130,000.00* |  32,000.00 |  6,400.00  |  98,000.00 | 39,200.00* |      0.00 |      0.00  |   45,600.00*
+                10,833.33*  |  10,833.33* |   2,666.67 |    533.33  |   8,166.67 |  3,266.67* |      0.00 |      0.00  |    3,800.00*
                             |             |            |            |            |            |           |            |
                150,000.00*  | 150,000.00* |  32,000.00 |  6,400.00  | 118,000.00 | 47,200.00* |      0.00 |      0.00  |   53,600.00*
                 12,500.00*  |  12,500.00* |   2,666.67 |    533.33  |   9,833.33 |  3,933.33* |      0.00 |      0.00  |    4,466.67*
