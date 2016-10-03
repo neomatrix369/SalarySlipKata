@@ -29,7 +29,7 @@ Salary slip kata
           }
       
       ```
-    - The salary slip must contain the below items:     
+    - The salary slip must contain the below items, say for a John J Doe earning £24,000 gross salary per year:     
       ```text
       
          Employee ID: 12345
