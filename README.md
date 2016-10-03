@@ -12,15 +12,24 @@ Salary slip kata
   Also note that when the Gross Salary exceeds £100,000, personal allows rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000. And this adjusted excess is taxed at the Higher rate tax.
   See table for further information on breakdown.
 
-### Scenario 1: print a salary slip with employee details for an employee 
+### Scenario: print a salary slip with employee details for an employee 
     
-  <p>Given I have an employee</p>
+  <p>Given I have an employee John J Doe with an annual salary of £24,000.00</p>
   <p>When I generate a monthly salary slip for the employee</p>
-  <p>Then it should contain the Employee ID, Employee Name, Gross Salary, Taxable income, Tax-free allowance, National Insurance, Tax payable and Net payable for the month</p>
+  <p>Then it should contain the below:</p>
+  
+           Employee ID: 12345
+           Employee Name: John J Doe
+           Gross Salary: £2000.00
+           Tax-free allowance: £916.67
+           Taxable income: £1083.33
+           National Insurance contributions: £159.40
+           Tax Payable: £216.67 
+           Net Payable: £1623.93
 
 - Acceptance criteria:
     - Should pass Employee Id, Employee Name and Annual Salary
-    - Should generate the data that will be contained in an employee's salary slip
+    - Should contain the Employee ID, Employee Name, Gross Salary, Taxable income, Tax-free allowance, National Insurance, Tax payable and Net payable for the month
     - The entry point should be the following interface, which you can not change:
       ```java
       
@@ -28,19 +37,7 @@ Salary slip kata
             public void generateFor(Employee employee);
           }
       
-      ```
-    - The salary slip must contain the below items, say for a John J Doe earning £24,000 gross salary per year:     
-      ```text
-      
-         Employee ID: 12345
-         Employee Name: John J Doe
-         Gross Salary: £2000.00
-         Tax-free allowance: £916.67
-         Taxable income: £1083.33
-         National Insurance contributions: £159.40
-         Tax Payable: £216.67 
-         Net Payable: £1623.93
-      ```
+      ```    
 
 ### Calculations: National Insurance contributions and Tax
  
