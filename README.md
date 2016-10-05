@@ -2,7 +2,7 @@ Salary slip kata
 ================
 - Problem description: Salary slip generator for UK companies.
  
-  A typical salary slips contains employee details like employee id, employee name and their salary details like their gross salary, taxable income, tax-free allowance, national insurance contributions, taxes payable and net payable.
+  A typical salary slips contains employee details like employee id, employee name and their salary details like their gross salary, taxable income, tax-free allowance, national insurance contributions and taxes payable.
   
   In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the respective aspects of the salary slip and have an impact on the gross salary, national insurance contributions, and taxes to be paid.
   
@@ -25,11 +25,11 @@ Salary slip kata
            Taxable income: £1083.33
            National Insurance contributions: £159.40
            Tax Payable: £216.67 
-           Net Payable: £1623.93
+         
 
 - Acceptance criteria:
     - Should pass Employee Id, Employee Name and Annual Salary
-    - Should contain the Employee ID, Employee Name, Gross Salary, Taxable income, Tax-free allowance, National Insurance, Tax payable and Net payable for the month
+    - Should contain the Employee ID, Employee Name, Gross Salary, Taxable income, Tax-free allowance, National Insurance and Tax payable for the month
     - The entry point should be the following interface, which you can not change:
       ```java
       
@@ -70,8 +70,6 @@ Salary slip kata
    ```
    
    Total deductibles  = National Insurance + Tax
-
-   Net payable        = Gross Salary - Total deductibles
 
 ### Examples: National Insurance contributions and Tax calculations
    - National Insurance contributions table (illustrated using both annual and monthly salaries):
