@@ -41,8 +41,9 @@ Salary slip kata
 
 ### Calculations: National Insurance contributions and Tax
  
-   National Insurance contributions must follow the below bands for the UK:
-   (description: PENDING)
+   National Insurance contributions are made up of three bands. It is a deductible and computed as a sum of the contributions for every band the salary is applicable for.
+   Further examples on how it is computed for various salaries can be found in the 'Examples: National Insurance contributions and Tax calculations' table 
+   towards the lower power of this page. Below are the definitions of the bands for the UK:   
    ```
          ---------------------+-----------------------+--------
          Band                 | NI deductible income  | NI Rate
@@ -53,8 +54,9 @@ Salary slip kata
          ---------------------+-----------------------+--------
    ```
  
-   Tax payable must follow the below bands for the UK:
-   (description: PENDING)
+  Tax payable is made up of four bands. It is a deductible and computed as a sum of the tax payable for every band the salary is applicable for.
+  Further examples on how it is computed for various salaries can be found in the 'Examples: National Insurance contributions and Tax calculations' table 
+  towards the lower power of this page. Below are the definitions of the bands for the UK:   
    ```
          ---------------------+----------------------+---------
          Band                 | Taxable income       | Tax rate
