@@ -2,7 +2,7 @@ Salary slip kata
 ================
 - Problem description: Salary slip generator for UK companies.
  
-  A typical salary slips contains employee details like employee id, employee name and their salary details like their gross salary, taxable income, tax-free allowance, national insurance contributions and taxes payable.
+  A typical salary slips contains employee details like employee id, employee name and their salary details like their gross salary, national insurance contributions , taxable income, tax-free allowance and taxes payable.
   
   In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the respective aspects of the salary slip and have an impact on the gross salary, national insurance contributions, and taxes to be paid.
   
@@ -10,7 +10,7 @@ Salary slip kata
    
   Note: the tables used for calculating the National Insurance contributions and Taxes are for the current year (April 2016/17).
   Also note that when the Gross Salary exceeds £100,000, personal allows rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000. And this adjusted excess is taxed at the Higher rate tax.
-  See table for further information on breakdown.
+  See [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
 ### Scenario: print a salary slip with employee details for an employee 
     
@@ -21,15 +21,15 @@ Salary slip kata
            Employee ID: 12345
            Employee Name: John J Doe
            Gross Salary: £2000.00
+           National Insurance contributions: £159.40
            Tax-free allowance: £916.67
            Taxable income: £1083.33
-           National Insurance contributions: £159.40
            Tax Payable: £216.67 
          
 
 - Acceptance criteria:
     - Should pass Employee Id, Employee Name and Annual Salary
-    - Should contain the Employee ID, Employee Name, Gross Salary, Taxable income, Tax-free allowance, National Insurance and Tax payable for the month
+    - Should contain the Employee ID, Employee Name, Gross Salary, National Insurance, Taxable income, Tax-free allowance and Tax payable for the month
     - The entry point should be the following interface, which you can not change:
       ```java
       
@@ -42,7 +42,7 @@ Salary slip kata
 ### Calculations: National Insurance contributions and Tax
  
    National Insurance contributions are made up of three bands. It is a deductible and computed as a sum of the contributions for every band the salary is applicable for.
-   Further examples on how it is computed for various salaries can be found in the 'Examples: National Insurance contributions and Tax calculations' table 
+   Further examples on how it is computed for various salaries can be found in the [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) table 
    towards the lower power of this page. Below are the definitions of the bands for the UK:   
    ```
          ---------------------+-----------------------+--------
@@ -55,7 +55,7 @@ Salary slip kata
    ```
  
   Tax payable is made up of four bands. It is a deductible and computed as a sum of the tax payable for every band the salary is applicable for.
-  Further examples on how it is computed for various salaries can be found in the 'Examples: National Insurance contributions and Tax calculations' table 
+  Further examples on how it is computed for various salaries can be found in the [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) table 
   towards the lower power of this page. Below are the definitions of the bands for the UK:   
    ```
          ---------------------+----------------------+---------
