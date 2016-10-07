@@ -51,7 +51,7 @@ Salary slip kata
          Band                 | NI deductible income  | NI Rate
          ---------------------+-----------------------+--------
          No contributions     | Up to £8,060          |    0%
-         Basic contributions  | £8,061 to £43,000     |   12%
+         Basic contributions  | £8,060 to £43,000     |   12%
          Higher contributions | over £43,000          |    2%
          ---------------------+-----------------------+--------
    ```
@@ -64,8 +64,8 @@ Salary slip kata
          Band                 | Taxable income       | Tax rate
          ---------------------+----------------------+---------
          Personal Allowance*  | Up to £11,000        |    0%
-         Basic rate           | £11,001 to £43,000   |   20%
-         Higher rate          | £43,001 to £150,000  |   40%
+         Basic rate           | £11,000 to £43,000   |   20%
+         Higher rate          | £43,000 to £150,000  |   40%
          Additional rate      | over £150,000        |   45%
          ---------------------+----------------------+---------
          * - past a Gross Salary of £100,000, personal allowance rules change -
