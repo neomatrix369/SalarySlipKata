@@ -9,7 +9,7 @@ Salary slip kata
   Salary slips are generated each month for every employee.
    
   Note: the tables used for calculating the National Insurance contributions and Taxes are for the current year (April 2016/17).
-  Also note that when the Gross Salary exceeds £100,000, personal allowance rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000. And this adjusted excess is taxed at the Higher rate tax.
+  Also note that when the Gross Salary exceeds £100,000.00, personal allowance rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000.00. And this adjusted excess is taxed at the Higher rate tax.
   See [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
 ### Scenario: print a salary slip with employee details for an employee 
@@ -68,8 +68,8 @@ Salary slip kata
          Higher rate          | £43,000 to £150,000  |   40%
          Additional rate      | over £150,000        |   45%
          ---------------------+----------------------+---------
-         * - past a Gross Salary of £100,000, personal allowance rules change -
-         for every extra £2 earned, the personal allowance reduces by £1. Past a salary of £122,000,
+         * - past a Gross Salary of £100,000.00, personal allowance rules change -
+         for every extra £2 earned, the personal allowance reduces by £1. Past a salary of £122,000.00,
          no personal allowance is applicable. And this adjusted excess is taxed at the Higher rate tax.
    ```
    
@@ -183,8 +183,8 @@ Salary slip kata
                               |             |             |            |            |             |             |           |            |
          ---------------------+-------------+-------------+------------+------------+-------------+-------------+-----------+------------+---------------
 
-         * - past a Gross Salary of £100,000, personal allowance rules change - for every extra £2 earned, the personal allowance reduces by £1. 
-         Past a salary of £122,000, no personal allowance is applicable. And this adjusted excess is taxed at the Higher rate tax.
+         * - past a Gross Salary of £100,000.00, personal allowance rules change - for every extra £2 earned, the personal allowance reduces by £1. 
+         Past a salary of £122,000.00, no personal allowance is applicable. And this adjusted excess is taxed at the Higher rate tax.
  
 - Resources
     - [Sample Salary Slip](http://1.bp.blogspot.com/-lJXMuMQCGtE/Udm8dlTIeSI/AAAAAAAAA1Q/jLxBZndJTAA/s1600/Pay+Slip+Format.JPG)
