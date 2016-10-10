@@ -34,7 +34,7 @@ Salary slip kata
       ```java
       
           public class SalarySlipGenerator {
-            public void generateFor(Employee employee);
+            public SalarySlip generateFor(Employee employee);
           }
       
       ```    
