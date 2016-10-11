@@ -47,31 +47,33 @@ Salary slip kata
    Further examples on how it is computed for various salaries can be found in the [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) table 
    towards the lower power of this page. Below are the definitions of the bands for the UK:   
    ```
-         ---------------------+-----------------------+--------
-         Band                 | NI deductible income  | NI Rate
-         ---------------------+-----------------------+--------
-         No contributions     | Up to £8,060          |    0%
-         Basic contributions  | £8,060 to £43,000     |   12%
-         Higher contributions | over £43,000          |    2%
-         ---------------------+-----------------------+--------
+         ---------------------+-------------------------+--------
+         Band                 | NI deductible income    | NI Rate
+         ---------------------+-------------------------+--------
+         No contributions     | Up to £8,060.00         |    0%
+         Basic contributions  | £8,060.00 to £43,000.00 |   12%
+         Higher contributions | over £43,000.00         |    2%
+         ---------------------+-------------------------+--------
    ```
+   Note: for each of the above bands, NI deductible income is accounted for, starting from and including the first penny (1p) earned above the lower-limit, up to and including the higher-limit specified. 
  
   Tax payable is made up of four bands. It is a deductible and computed as a sum of the tax payable for every band the salary is applicable for.
   Further examples on how it is computed for various salaries can be found in the [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) table 
   towards the lower power of this page. Below are the definitions of the bands for the UK:   
    ```
-         ---------------------+----------------------+---------
-         Band                 | Taxable income       | Tax rate
-         ---------------------+----------------------+---------
-         Personal Allowance*  | Up to £11,000        |    0%
-         Basic rate           | £11,000 to £43,000   |   20%
-         Higher rate          | £43,000 to £150,000  |   40%
-         Additional rate      | over £150,000        |   45%
-         ---------------------+----------------------+---------
+         ---------------------+---------------------------+---------
+         Band                 | Taxable income            | Tax rate
+         ---------------------+---------------------------+---------
+         Personal Allowance*  | Up to £11,000.00          |    0%
+         Basic rate           | £11,000.00 to £43,000.00  |   20%
+         Higher rate          | £43,000.00 to £150,000.00 |   40%
+         Additional rate      | over £150,000.00          |   45%
+         ---------------------+---------------------------+---------
          * - past a Gross Salary of £100,000.00, personal allowance rules change -
          for every extra £2 earned, the personal allowance reduces by £1. Past a salary of £122,000.00,
          no personal allowance is applicable. And this adjusted excess is taxed at the Higher rate tax.
    ```
+   Note: for each of the above bands, taxable income is accounted for, starting from and including the first penny (1p) earned above the lower-limit, up to and including the higher-limit specified.
    
    Total deductibles  = National Insurance + Tax
 
