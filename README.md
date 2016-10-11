@@ -1,6 +1,6 @@
 Salary slip kata
 ================
-- Problem description: Salary slip generator for UK companies.
+### Problem description: Salary slip generator for UK companies.
  
   A typical salary slips contains employee details like employee id, employee name and their salary details like their gross salary, national insurance contributions , taxable income, tax-free allowance* and taxes payable.
   
