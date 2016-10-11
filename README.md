@@ -27,18 +27,17 @@ Salary slip kata
            Tax Payable: £216.67 
          
 
-- Acceptance criteria:
-    - Salary slip generator should pass an employee with its Employee Id, Employee Name and Annual Salary
-    - Salary slip should contain the Employee ID, Employee Name, Gross Salary, National Insurance, Taxable income, Tax-free allowance* and Tax payable for the month
-    - The entry point should be the following interface, which you can not change:
-      ```java
-      
-          public class SalarySlipGenerator {
-            public SalarySlip generateFor(Employee employee);
-          }
-      
-      ```    
-
+### Acceptance criteria:
+- Salary slip generator should pass an employee with its Employee Id, Employee Name and Annual Salary
+- Salary slip should contain the Employee ID, Employee Name, Gross Salary, National Insurance, Taxable income, Tax-free allowance* and Tax payable for the month
+- The entry point should be the following interface, which you can not change:
+  ```java
+  
+      public class SalarySlipGenerator {
+        public SalarySlip generateFor(Employee employee);
+      }
+  
+  ```    
   *Note: The term 'Tax-free allowance' is interchangeably used with the term 'Personal Allowance' and 'Tax-free Personal Allowance' in this domain.
   
 ### Calculations: National Insurance contributions and Tax
@@ -75,7 +74,13 @@ Salary slip kata
    ```
    Note: for each of the above bands, taxable income is accounted for, starting from and including the first penny (1p) earned above the lower-limit, up to and including the higher-limit specified.
    
-   Total deductibles  = National Insurance + Tax
+   ```
+        National Insurance contributions = sum of the contributions accumulated by the two contribution bands
+       
+        Tax payable = sum of all the tax payable accumulated by the three tax bands 
+       
+        Total deductibles = National Insurance contributions + Tax payable
+   ```
 
 ### Examples: National Insurance contributions and Tax calculations
    - National Insurance contributions table (illustrated using both annual and monthly salaries):
