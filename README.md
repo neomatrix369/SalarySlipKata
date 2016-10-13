@@ -4,8 +4,6 @@ Salary slip kata
  
   A typical salary slips contains employee details like employee id, employee name and their salary details like their gross salary, national insurance contributions , taxable income, tax-free allowance* and taxes payable.
   
-  In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the respective aspects of the salary slip and have an impact on the gross salary, national insurance contributions, and taxes to be paid.
-  
   Salary slips are generated each month for every employee.
    
   Note: the tables used for calculating the National Insurance contributions and Taxes are for the current year (April 2016/17).
