@@ -78,7 +78,7 @@ Salary slip kata
          Higher rate          | £43,000.00 to £150,000.00 |   40%
          Additional rate      | over £150,000.00          |   45%
          ---------------------+---------------------------+---------
-         * - past a Annual Gross Salary of £100,000.00, personal allowance rules change -
+         * - past an Annual Gross Salary of £100,000.00, personal allowance rules change -
          for every extra £2 earned, the personal allowance reduces by £1. Past an annual gross salary of £122,000.00,
          no personal allowance is applicable. And this excess is taxed at the Higher rate tax.
    ```
