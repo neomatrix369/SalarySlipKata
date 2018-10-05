@@ -7,7 +7,7 @@ Salary slip kata
   
   Salary slips are generated each month for every employee.
    
-  Note: the tables used for calculating the National Insurance contributions and Taxes are for the current year (April 2016/17).
+  **Note:** the tables used for calculating the National Insurance contributions and Taxes are for the current year (April 2016/17).
   Also note that when the Annual Gross Salary exceeds £100,000.00, personal allowance rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000.00. And this excess is taxed at the Higher rate tax.
   See [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
@@ -30,7 +30,7 @@ Salary slip kata
 ### Acceptance criteria:
 - Salary slip generator should pass an employee with its Employee Id, Employee Name and Annual Gross Salary
 - Salary slip should contain the Employee ID, Employee Name, Gross Salary, National Insurance, Tax-free allowance*, Taxable income and Tax payable for the month
-- The entry point should be one of the following interfaces, which you CAN NOT change:
+- The entry point should be one of the following interfaces, which you CANNOT change:
   
   **Java** 
   ```java  
@@ -43,69 +43,11 @@ Salary slip kata
     }
   ```
   
-  **Scala**
-  ```scala
-    class SalarySlipGenerator {
-      def generateFor(employee: Employee)
-    }
-                ----- or ----
-    class SalarySlipGenerator {
-      def generateFor(employee: Employee): SalarySlip 
-    }
-  ```
-  
-  **Clojure**
-  ```clojure
-    <--- any suggestions? --->
-  ```
-  
-  **Javascript**
-  ```javascript
-    class SalarySlipGenerator {
-      void generateFor(Employee employee);
-    }
-                ----- or ----
-    class SalarySlipGenerator {
-      SalarySlip generateFor(Employee employee);
-    }
-  ```
-
-  **Python**
-  ```python
-    class SalarySlipGenerator: 
-        def generateFor(employee):
-    
-                  ----- or ----
-    class SalarySlipGenerator:
-        def generateFor(employee):
-  ```  
-  
-  **Ruby**
-  ```ruby
-    class SalarySlipGenerator 
-        def generateFor(employee)
-        end
-    
-               ----- or ----
-    class SalarySlipGenerator
-        def generateFor(employee)
-        end
-    ```
-
-  **C#**
-  ```csharp
-    public class SalarySlipGenerator {
-      public void generateFor(Employee employee);
-    }
-                ----- or ----
-    public class SalarySlipGenerator {
-      public SalarySlip generateFor(Employee employee);
-    }
-  ```
-      
   You can, however, add **private** methods and fields to the `SalarySlipGenerator` class, change the constructor, and add extra classes.
-  
+      
   **Note:** The term 'Tax-free allowance' is interchangeably used with the term 'Personal Allowance' and 'Tax-free Personal Allowance' in this domain.
+  
+  #### See examples of [interfaces for other languages](other-language-interfaces.md).  
   
 ### Calculations: National Insurance contributions and Tax
 
