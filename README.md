@@ -13,7 +13,7 @@ Salary slip kata
 
 ### Scenario 1: review and validate the specification provided
    
-  *Input resources*
+#### Input resources
   
   - Problem description: Salary slip generator for UK companies
   - Calculations: National Insurance contributions and Tax
