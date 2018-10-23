@@ -1,7 +1,7 @@
 Salary slip kata
 ================
 
-### Problem description: Salary slip generator for UK companies.
+### Problem description: Salary slip generator for UK companies
  
   A typical salary slips contains employee details like employee id, employee name and their monthly salary details like their gross salary, national insurance contributions, tax-free allowance*, taxable income and tax payable.
   
@@ -11,7 +11,25 @@ Salary slip kata
   Also note that when the Annual Gross Salary exceeds £100,000.00, personal allowance rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000.00. And this excess is taxed at the Higher rate tax.
   See [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
-### Scenario: print a salary slip with employee details for an employee 
+### Scenario 1: review and validate the specification provided
+   
+  *Input resources*
+  
+  - Problem description: Salary slip generator for UK companies
+  - Calculations: National Insurance contributions and Tax
+  - Examples: National Insurance contributions and Tax calculations
+ 
+#### Artifact / deliverable can be any or all of the below
+  
+  - Re-written specification 
+  - Mindmap describing the problem
+  - Specification written in Gherkin
+  - Test specifications written in Cucumber
+  - Create Trello cards breaking down the problem 
+  
+Think of artifacts / deliverables that will make the coding process easier and increase the accuracy of the results, starting from the next scenario.
+  
+### Scenario 2: print a salary slip with employee details for an employee (annual gross salary of £24,000.00)
     
   <p><b>Given</b> I have an employee John J Doe with an annual gross salary of £24,000.00</p>
   <p><b>When</b> I generate a monthly salary slip for the employee</p>
@@ -26,7 +44,8 @@ Salary slip kata
            Tax payable: £216.67 
          
    **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
-
+   See [Acceptance criteria](#acceptance-criteria) before proceeding. 
+   
 ### Acceptance criteria:
 - Salary slip generator should pass an employee with its Employee Id, Employee Name and Annual Gross Salary
 - Salary slip should contain the Employee ID, Employee Name, Gross Salary, National Insurance, Tax-free allowance*, Taxable income and Tax payable for the month
