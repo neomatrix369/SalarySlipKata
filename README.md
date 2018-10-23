@@ -80,10 +80,10 @@ Think of artifacts / deliverables that will make the coding process easier and i
    **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
    See [Acceptance criteria](#acceptance-criteria) before proceeding.
 
-### Scenario 5: bonus points for able to handle some tricky challenges and situations
+### Scenario 5: bonus points to able to handle some tricky challenges and situations in the specification
    
    - You will see from the Calculations and Examples sections that when annual gross salary goes past £100,000 the calculations become more challenging. How will you tackle this issue from software design point of view?
-   - Have you checked the accuracy of the calculations so far up to the last penny with the provided [Resources](#resources) below, are they all matching up with our results for tax year 2016-17?
+   - Have you checked the accuracy of the calculations so far up to the last penny with the provided below [Resources](#resources), are they all matching up with our results for tax year 2016-17 (output of the implementation and test cases)?
    
    **Note:** this is a due-diligence scenario, no salary slips need printing but requires verification and validation of the developed solution up to scenario 4. 
    
