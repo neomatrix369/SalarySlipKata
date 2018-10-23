@@ -1,4 +1,4 @@
-### Examples: National Insurance contributions and Tax calculations
+### Examples: National Insurance contributions and Tax calculations (Tax year 2016-17)
 
    - National Insurance contributions table (illustrated using both annual and monthly gross salaries):
 

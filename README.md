@@ -1,13 +1,13 @@
 Salary slip kata
 ================
 
-### Problem description: Salary slip generator for UK companies
+### Problem description: Salary slip generator for UK companies (Tax year 2016-17)
  
   A typical salary slips contains employee details like employee id, employee name and their monthly salary details like their gross salary, national insurance contributions, tax-free allowance*, taxable income and tax payable.
   
   Salary slips are generated each month for every employee.
    
-  **Note:** the tables used for calculating the National Insurance contributions and Taxes are for the current year (April 2016/17).
+  **Note:** the tables used for calculating the National Insurance contributions and Taxes are for the year (April 2016/17).
   Also note that when the Annual Gross Salary exceeds £100,000.00, personal allowance rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000.00. And this excess is taxed at the Higher rate tax.
   See [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
@@ -45,6 +45,24 @@ Think of artifacts / deliverables that will make the coding process easier and i
          
    **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
    See [Acceptance criteria](#acceptance-criteria) before proceeding. 
+
+### Scenario 3: print a salary slip with employee details for an employee (annual gross salary of £45,000.00)
+    
+  <p><b>Given</b> I have an employee John J Doe with an annual gross salary of £45,000.00</p>
+  <p><b>When</b> I generate a monthly salary slip for the employee</p>
+  <p><b>Then</b> it should contain the below:</p>
+  
+           Employee ID: 12345
+           Employee Name: John J Doe
+           Gross Salary: £3750.00
+           National Insurance contributions: £352.73
+           Tax-free allowance: £916.67
+           Taxable income: £2,833.33
+           Tax payable: £600.00 
+         
+   **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
+   See [Acceptance criteria](#acceptance-criteria) before proceeding. 
+
    
 ### Acceptance criteria:
 - Salary slip generator should pass an employee with its Employee Id, Employee Name and Annual Gross Salary
