@@ -63,6 +63,22 @@ Think of artifacts / deliverables that will make the coding process easier and i
    **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
    See [Acceptance criteria](#acceptance-criteria) before proceeding. 
 
+### Scenario 4: print a salary slip with employee details for an employee (annual gross salary of £101,000.00)
+    
+  <p><b>Given</b> I have an employee John J Doe with an annual gross salary of £101,000.00</p>
+  <p><b>When</b> I generate a monthly salary slip for the employee</p>
+  <p><b>Then</b> it should contain the below:</p>
+  
+           Employee ID: 12345
+           Employee Name: John J Doe
+           Gross Salary: £8,416.67
+           National Insurance contributions: £446.07
+           Tax-free allowance: £875.00
+           Taxable income: £7,541.67
+           Tax payable: £2,483.33 
+         
+   **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
+   See [Acceptance criteria](#acceptance-criteria) before proceeding. 
    
 ### Acceptance criteria:
 - Salary slip generator should pass an employee with its Employee Id, Employee Name and Annual Gross Salary
