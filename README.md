@@ -107,7 +107,7 @@ Think of artifacts / deliverables that will make the coding process easier and i
       
   **Note:** The term 'Tax-free allowance' is interchangeably used with the term 'Personal Allowance' and 'Tax-free Personal Allowance' in this domain.
   
-  #### See examples of [interfaces for other languages](other-language-interfaces.md).  
+  #### See examples of [interfaces for other programming languages](other-language-interfaces.md).  
   
 ### Calculations: National Insurance contributions and Tax
 
