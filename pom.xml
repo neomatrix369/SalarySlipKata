@@ -51,6 +51,13 @@
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- How to use JUnitParams: https://github.com/Pragmatists/JUnitParams -->
+		<dependency>
+			<groupId>pl.pragmatists</groupId>
+			<artifactId>JUnitParams</artifactId>
+			<version>1.0.5</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
