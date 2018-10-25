@@ -109,4 +109,6 @@
                                
    *past an Annual Gross Salary of £100,000.00, the personal allowance rules change i.e. for every extra £2 earned, the personal allowance reduces by £1. Past an annual gross salary of £122,000.00, NO personal allowance is applicable. And this excess is taxed at the Higher rate tax.
 
+See the [Calculations: National Insurance contributions and Tax](CALCULATIONS.md) section to find out what the calculations tables for both National Insurance and Tax calculations. 
+
 Go back to [README.md](README.md).

@@ -40,3 +40,7 @@
        
         Total deductibles = National Insurance contributions + Tax payable
    ```
+  
+  See the [Examples: National Insurance contributions and Tax calculations](EXAMPLES.md) section for examples of the above mentioned National Insurance and Tax calculations.
+
+  Go back to [README.md](README.md).
