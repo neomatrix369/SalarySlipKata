@@ -9,7 +9,8 @@ Salary slip kata
    
   **Note:** the tables used for calculating the National Insurance contributions and Taxes are for the year (April 2016/17).
   Also note that when the Annual Gross Salary exceeds £100,000.00, personal allowance rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000.00. And this excess is taxed at the Higher rate tax.
-  See [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
+  
+  See [Calculations: National Insurance contributions and Tax](#calculations-national-insurance-contributions-and-tax) and [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
 ### Scenario 1: review and validate the specification provided
    
