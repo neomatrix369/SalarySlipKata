@@ -12,6 +12,8 @@ Salary slip kata
 
   See [Calculations: National Insurance contributions and Tax](#calculations-national-insurance-contributions-and-tax) and [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
+---
+
 ### Scenario 1: review and validate the specification provided
    
 #### Input resources
@@ -33,7 +35,9 @@ Salary slip kata
 Think of artifacts / deliverables that will make the coding process easier and increase the accuracy of the results, starting from the next scenario.
 
 **Hint:** pick the simplest part of the task above, consider the Problem description, Scenario 2, Acceptance criteria, Calculations (Scenario 2 specific), Examples (Scenario 2 specific) in your first attempt (iteration).
-  
+
+---
+
 ### Scenario 2: print a salary slip with employee details for an employee (annual gross salary of £24,000.00)
     
   <p><b>Given</b> I have an employee John J Doe with an annual gross salary of £24,000.00</p>
