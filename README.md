@@ -34,7 +34,7 @@ Salary slip kata
   
 Think of artifacts / deliverables that will make the coding process easier and increase the accuracy of the results, starting from the next scenario.
 
-**Hint:** pick the simplest part of the task above, consider the Problem description, Scenario 2, Acceptance criteria, Calculations (Scenario 2 specific), Examples (Scenario 2 specific) in your first attempt (iteration).
+**Hint:** pick the simplest part of the above task, consider the Problem description, Scenario 2, Acceptance criteria, Calculations (specific to Scenario 2), Examples (specific to Scenario 2) in your first attempt (iteration).
 
 ---
 
