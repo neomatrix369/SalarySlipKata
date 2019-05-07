@@ -9,7 +9,7 @@ Salary slip kata
    
   **Note:** the tables used for calculating the National Insurance contributions and Taxes are for the year (April 2016/17).
   Also note that when the Annual Gross Salary exceeds £100,000.00, personal allowance rules do not apply. Instead personal allowance decreases by a £1 for every £2 earned over £100,000.00. And this excess is taxed at the Higher rate tax.
-  
+
   See [Calculations: National Insurance contributions and Tax](#calculations-national-insurance-contributions-and-tax) and [Examples: National Insurance contributions and Tax calculations](#examples-national-insurance-contributions-and-tax-calculations) for further information on the breakdown.
 
 ### Scenario 1: review and validate the specification provided
@@ -17,18 +17,22 @@ Salary slip kata
 #### Input resources
   
   - Problem description: Salary slip generator for UK companies
+  - Scenarios 2 to 5 (Scenario 1 is excluded)
+  - Acceptance criteria
   - Calculations: National Insurance contributions and Tax
   - Examples: National Insurance contributions and Tax calculations
  
-#### Artifact / deliverable can be any or all of the below
+#### Artifact / deliverables can be any or all of the below
   
-  - Re-written specification 
+  - Re-written specification (whole or parts of it)
   - Mindmap describing the problem
   - Specification written in Gherkin
   - Test specifications written in Cucumber
-  - Create Trello cards breaking down the problem 
+  - Create Trello cards breaking down the problems into smaller parts
   
 Think of artifacts / deliverables that will make the coding process easier and increase the accuracy of the results, starting from the next scenario.
+
+**Hint:** pick the simplest part of the task above, consider the Problem description, Scenario 2, Acceptance criteria, Calculations (Scenario 2 specific), Examples (Scenario 2 specific) in your first attempt (iteration).
   
 ### Scenario 2: print a salary slip with employee details for an employee (annual gross salary of £24,000.00)
     
