@@ -50,8 +50,8 @@ Think of artifacts / deliverables that will make the coding process easier and i
            National Insurance contributions: £159.40
            Tax-free allowance: £916.67
            Taxable income: £1083.33
-           Tax payable: £216.67 
-         
+           Tax payable: £216.67          
+   
    **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
    See [Acceptance criteria](#acceptance-criteria) before proceeding. 
 
@@ -67,8 +67,8 @@ Think of artifacts / deliverables that will make the coding process easier and i
            National Insurance contributions: £352.73
            Tax-free allowance: £916.67
            Taxable income: £2,833.33
-           Tax payable: £600.00 
-         
+           Tax payable: £600.00       
+   
    **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
    See [Acceptance criteria](#acceptance-criteria) before proceeding. 
 
@@ -85,7 +85,7 @@ Think of artifacts / deliverables that will make the coding process easier and i
            Tax-free allowance: £875.00
            Taxable income: £7,541.67
            Tax payable: £2,483.33 
-         
+   
    **Note:** you do not need to use any formatting or a particular currency (for example: £) or even the exact labels for the fields like above. As long as the values are representative of the details of a salary slip above, distinct and human readable.
    See [Acceptance criteria](#acceptance-criteria) before proceeding.
 
