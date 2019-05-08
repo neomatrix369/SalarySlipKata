@@ -1,4 +1,4 @@
-package SalarySlipKata;
+package org.neomatrix369.salaryslip;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
