@@ -1,243 +1,65 @@
 Salary slip kata
 ================
-- Problem description: Salary slip generator application for UK companies.
- 
-  A typical salary slips contains employee details like employee id, employee name and their salary details like their basic salary, gross salary, national insurance contributions, and taxes to be paid.
-  
-  In the event there are earnings like overtime and bonuses or deductions like loans, these are accounted for in the respective aspects of the salary slip and have an impact on the gross salary, national insurance contributions, and taxes to be paid.
-  
-  Salary slips are generated each month for every employee. 
 
-### Scenario 1: add employee details and print a salary slip
-    
-  Given I have added an employee
-  When I print the salary slip
-  Then it should display the Date, Salary period, Employee ID, Employee Name and Basic Salary 
+## Specification
 
-- Acceptance criteria:
-    - Should accept EmployeeId, Employee Name and Basic Salary
-    - Should print an employee's salary slip
-    - The entry point should be the following interface, which you can not change:    
-      ```java
-      
-          public class SalarySlipGenerator {
-              public void addSalaryItem(EmployeeId employeeId, new SalaryItem(GBP amount), LocalDate date);
-              public void printFor(EmployeeId employeeId, LocalDate date);
-          }
-      
-      ``` 
-    - The resulting output must be in the below format: 
-      ```
-         Date: 01 Sep 2016             Salary for period: Sep 2016
-    
-         Employee ID: 12345            Employee Name: John J Doe
-    
-         EARNINGS                                  
-         Basic            £2000.00
-      ```
+See [Salary Slip specification](./specification.md)
 
-
-### Scenario 2: calculate the National Insurance contributions based on the basic salary
-
-  Given I have an employee id for an employee
-  When I print the salary slip
-  Then it should calculate the respective National Insurance contributions from the Basic Salary
-  And it should display the Date, Salary period, Employee ID, Employee Name, Basic Salary and National Insurance contribution
-  
-  Acceptance Criteria:
-  - The resulting output must be in the below format:
-    
-       Date: 01 Sep 2016             Salary for period: Sep 2016
-
-       Employee ID: 12345            Employee Name: John J Doe
-
-       EARNINGS                      DEDUCTIONS                   
-       Basic            £2000.00     National Insurance     £159.40
-    
-  
-### Scenario 3: calculate the Tax to be paid based on the basic salary
-
-  Given I have an employee id for an employee
-  When I print the salary slip
-  Then it should calculate the respective Tax to be paid from the Basic Salary
-  And it should display the Date, Salary period, Employee ID, Employee Name, 
-  Basic Salary, National Insurance contribution and Tax to be paid 
-  
-  Acceptance Criteria:
-  - The resulting output must be in the below format:
-  
-       Date: 01 Sep 2016             Salary for period: Sep 2016
-       
-       Employee ID: 12345            Employee Name: John J Doe
-       
-       EARNINGS                      DEDUCTIONS                   
-       Basic            £2000.00     National Insurance     £159.40
-                                     Tax                    £216.67
-
-### Scenario 4: calculate the gross salary, NI and Tax after adding a bonus to the basic salary
-
-  Given I have an employee id for an employee
-  And I have added a Bonus to the monthly salary
-  When I print the salary slip
-  Then it should calculate the Gross Salary (Basic + Bonus)
-  And calculate the respective NI contributions based on the Gross Salary 
-  And the Tax based on the Gross Salary
-  And it should display the Date, Salary period, Employee ID, Employee Name, 
-  Basic Salary, Bonus, Gross Salary, National Insurance contribution, and 
-  Tax to be paid 
-  
-  Acceptance Criteria:
-  - Type Bonus is a sub-type of class SalaryItem
-  - The resulting output must be in the below format:
-  
-       Date: 01 Sep 2016             Salary for period: Sep 2016
-
-       Employee ID: 12345            Employee Name: John J Doe
-
-       EARNINGS                      DEDUCTIONS                   
-       Basic            £2000.00     National Insurance     £279.40
-       Bonus            £1000.00     Tax                    £416.67
-
-       Gross Salary     £3000.00
-
-
-### Scenario 5: calculate the gross salary, NI and Tax after adding an overtime to the basic salary and bonus
-
-  Given I have an employee id for an employee
-  And I have added a Bonus to the monthly salary
-  And I have added an Overtime to the monthly salary
-  When I print the salary slip
-  Then it should calculate the Gross Salary (Basic + Bonus + Overtime) 
-  And calculate the respective NI contributions based on the Gross Salary 
-  And the Tax based on the Gross Salary
-  And it should display the Date, Salary period, Employee ID, Employee Name, 
-  Basic Salary, Bonus, Overtime, Gross Salary, National Insurance contribution, 
-  and Tax to be paid 
-
-  Acceptance Criteria:
-  - Type Overtime is a sub-type of class SalaryItem
-  - The resulting output must be in the below format:
-  
-       Date: 01 Sep 2016             Salary for period: Sep 2016
-
-       Employee ID: 12345            Employee Name: John J Doe
-
-       EARNINGS                      DEDUCTIONS
-       Basic            £2000.00     National Insurance     £339.40
-       Bonus            £1000.00     Tax                    £516.67
-       Overtime          £500.00
-
-       Gross Salary     £3500.00
-
-### Scenario 6: calculate the gross salary, NI and Tax after deducting a loan payment 
-
-  Given I have an employee id for an employee
-  And I have added a Bonus to the monthly salary
-  And I have added an Overtime to the monthly salary
-  And have added a Loan deduction to the monthly salary
-  When I print the salary slip
-  Then it should calculate the Gross Salary (Basic + Bonus + Overtime - Loan) 
-  And calculate the respective NI contributions based on the Gross Salary 
-  And the Tax based on the Gross Salary
-  And the Net payable or salary to take home (Gross Salary - NI - Tax)
-  And it should display the Date, Salary period, Employee ID, Employee Name, 
-  Basic Salary, Bonus, Overtime, Gross Salary, Loan deduction, 
-  National Insurance contribution, and Tax to be paid 
-
-  Acceptance Criteria:
-  - Type Loan is a sub-type of class SalaryItem
-  - The resulting output must be in the below format:
-  
-       Date: 01 Sep 2016             Salary for period: Sep 2016
-
-       Employee ID: 12345            Employee Name: John J Doe
-
-       EARNINGS                      DEDUCTIONS
-       Basic            £2000.00     Loan                   £200.00
-       Bonus            £1000.00     National Insurance     £315.40
-       Overtime          £500.00     Tax                    £467.67
-
-       Gross Salary     £3300.00     Net payable           £2507.93
-  
-### Calculations: National Insurance contributions and Tax
-         
-   Gross Salary       = Basic Salary + sum of all earnings - sum of all deductions
-
-   National Insurance = NI deductable income * applicable NI rates
-   National Insurance earnings threshold for the UK:
-   ```
-         Band                  NI deducable income     Rate
-         ---------------------------------------------------
-         No contributions      Up to £8,060             0%
-         Basic contributions   £8,061 to £43,000       12%
-         Higher contributions  over £43,000             2%
-   ```
+### Task 1: review and validate the specification provided
    
-   Taxable Income     = Gross Salary - Personal Allowance 
-   Tax                = Taxable Income * applicable tax rates
-   All tax deductions must follow the below brackets for the UK: 
-   ```
-         Band                   Taxable income       Tax rate
-         ----------------------------------------------------
-         Personal Allowance     Up to £11,000            0%
-         Basic rate             £11,001 to £43,000      20%
-         Higher rate            £43,001 to £150,000     40%
-         Additional rate        over £150,000           45%
-   ```
-   Total deductables  = National Insurance + Tax
+#### Input resources
+  
+  - Specification containing the "problem" description
+  - Acceptance criteria
+  - Calculations: National Insurance contributions and Tax
+  - Examples: National Insurance contributions and Tax calculations
+ 
+#### Artifact / deliverables can be any or all of the below
+  
+  - Re-written specification (whole or parts of it)
+  - Mindmap describing the problem
+  - Specification written in Gherkin
+  - Test specifications written in Cucumber
+  - Create Trello cards breaking down the problems into smaller parts
+  
+Think of artifacts / deliverables that will make the coding process easier and increase the accuracy of the results, starting from the next task.
 
-   Net payable        = Gross Salary - Total Deductables
+**Hint:** pick the simplest part of the above task, consider the Problem description, Scenario 1, Acceptance criteria, Calculations (specific to Scenario 1), Examples (specific to Scenario 1) in your first attempt (iteration). Get rid of buffer words and statements to filter out the essense.
 
-### Examples: National Insurance contributions and Tax calculations
-   - National Insurance contributions table:
-    
-          Annual Income (£)   First slab         Second slab         Third Slab         Total (£)
-                              (below £8,060.00)  (between £8,060.00  (above £43,000.00)
-                                                 and £43,000.00)
-                                     0%                  12%                2%
-         -----------------------------------------------------------------------------------------        
-                   5,000.00               0.00                 0.00               0.00       
-                                          0.00                 0.00               0.00        0.00
-                   8,060.00               0.00                 0.00               0.00       
-                                          0.00                 0.00               0.00        0.00
-                   9,060.00               0.00             1,000.00               0.00
-                                          0.00               120.00               0.00      120.00
-                  40,000.00               0.00            31,940.00               0.00       
-                                          0.00             3,832.80               0.00    3,832.80
-                  45,000.00               0.00            34,940.00           2,000.00 
-                                          0.00             4,192.80              40.00    4,232.80
-                  50,000.00               0.00            34,940.00           7,000.00
-                                          0.00             4,192.80             140.00    4,332.80
-                  60,000.00               0.00            34,940.00          17,000.00 
-                                          0.00             4,192.80             340.00    4,532.80
+---
 
-   - Tax calculation table:
+### Task 2: print a salary slip with employee details for an employee (annual gross salary of £24,000.00)
 
-         Annual Income (£)   First slab           Second slab           Third Slab           Fourth Slab          Total (£)
-                             (below £11,000.00)   (between £11,000.00   (between £43,000.00  (above £150,000.00)
-                                                  and £43,000.00)       and £150,000.00)
-                                     0%                   20%                   40%                  45%
-        --------------------------------------------------------------------------------------------------------------------------                                    
-                 5,000.00                0.00                    0.00                  0.00                 0.00       
-                                         0.00                    0.00                  0.00                 0.00       0.00
-                11,000.00                0.00                    0.00                  0.00                 0.00       
-                                         0.00                    0.00                  0.00                 0.00       0.00
-                12,000.00                0.00                1,000.00                  0.00                 0.00       
-                                         0.00                  200.00                  0.00                 0.00     200.00
-                40,000.00                0.00               29,000.00                  0.00                 0.00       
-                                         0.00                5,800.00                  0.00                 0.00   5,800.00
-                45,000.00                0.00               32,000.00              2,000.00                 0.00  
-                                         0.00                6,400.00                800.00                 0.00   7,200.00
-                50,000.00                0.00               32,000.00              7,000.00                 0.00  
-                                         0.00                6,400.00              2,800.00                 0.00   9,200.00
-                60,000.00                0.00               32,000.00             17,000.00                 0.00  
-                                         0.00                6,400.00              6,800.00                 0.00  13,200.00
-               100,000.00                0.00               32,000.00             57,000.00                 0.00  
-                                         0.00                6,400.00             22,800.00                 0.00  29,200.00
+See [Scenario 1](./specification.md#scenario-1-print-a-salary-slip-with-employee-details-for-an-employee-annual-gross-salary-of-2400000)
 
-- Resources
-    - [Sample Salary Slip](http://1.bp.blogspot.com/-lJXMuMQCGtE/Udm8dlTIeSI/AAAAAAAAA1Q/jLxBZndJTAA/s1600/Pay+Slip+Format.JPG)
-    - [Salary calculator](http://www.thesalarycalculator.co.uk/)
-    - [Tax breakdown calculator](http://tools.hmrc.gov.uk/hmrctaxcalculator/screen/Personal+Tax+Calculator/en-GB/summary?user=guest)
-    - [National insurance rates](http://www.which.co.uk/money/tax/guides/national-insurance-explained/national-insurance-rates/)
-    - [HMRC - National insurance rates](https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2016-to-2017)
+**Note:** look at the [Acceptance criteria](./specification.md#acceptance-criteria), [Calculations: National Insurance contributions and Tax](./specification.md#calculations-national-insurance-contributions-and-tax) and [Examples: National Insurance contributions and Tax calculations](./specification.md#examples-national-insurance-contributions-and-tax-calculations) before starting this section.
+
+---
+
+### Task 3: print a salary slip with employee details for an employee (annual gross salary of £45,000.00)
+
+See [Scenario 2](./specification.md#scenario-2-print-a-salary-slip-with-employee-details-for-an-employee-annual-gross-salary-of-4500000)
+
+**Note:** look at the [Acceptance criteria](./specification.md#acceptance-criteria), [Calculations: National Insurance contributions and Tax](./specification.md#calculations-national-insurance-contributions-and-tax) and [Examples: National Insurance contributions and Tax calculations](./specification.md#examples-national-insurance-contributions-and-tax-calculations) before starting this section.
+
+---    
+
+### Task 4: print a salary slip with employee details for an employee (annual gross salary of £101,000.00)
+
+See [Scenario 3](./specification.md#scenario-3-print-a-salary-slip-with-employee-details-for-an-employee-annual-gross-salary-of-10100000)
+
+**Note:** look at the [Acceptance criteria](./specification.md#acceptance-criteria), [Calculations: National Insurance contributions and Tax](./specification.md#calculations-national-insurance-contributions-and-tax) and [Examples: National Insurance contributions and Tax calculations](./specification.md#examples-national-insurance-contributions-and-tax-calculations) before starting this section.
+
+---
+
+### Task 5: bonus points to able to handle some tricky challenges and situations in the specification
+
+See [Scenario 4](./specification.md#scenario-4-bonus-points-to-able-to-handle-some-tricky-challenges-and-situations-in-the-specification)
+
+**Note:** look at the [Acceptance criteria](./specification.md#acceptance-criteria), [Calculations: National Insurance contributions and Tax](./specification.md#calculations-national-insurance-contributions-and-tax) and [Examples: National Insurance contributions and Tax calculations](./specification.md#examples-national-insurance-contributions-and-tax-calculations) before starting this section.
+
+---
+
+## Resources
+
+See [Resources](./specification.md#resources) to get a glimpse of how this is done in the real world.
